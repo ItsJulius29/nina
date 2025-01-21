@@ -45,3 +45,8 @@ section {
     background-color:#c3b1e1a2!important;
 }
 
+.bg-ini {
+    padding: 30px;
+    --bs-bg-opacity: 1;
+    background-color: #9787af!important;
+}
