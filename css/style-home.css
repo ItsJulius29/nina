@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-y: scroll; /* Permitir desplazamiento */
+    scrollbar-width: none; /* Ocultar en Firefox */
+    scroll-behavior: smooth;
+    touch-action: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none; /* Ocultar en WebKit */
+}
+
+section {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+#hidden-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.btn {
+    transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Efecto de crecimiento al pasar el cursor */
+}
+
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: #c3b1e1!important;
+}
+
+.bg-white {
+    --bs-bg-opacity: 1;
+    background-color:#c3b1e1a2!important;
+}
+
