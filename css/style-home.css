@@ -3,9 +3,7 @@ html, body {
     width: 100%;
     margin: 0;
     overflow-y: scroll; /* Permitir desplazamiento */
-    scrollbar-width: none; /* Ocultar en Firefox */
     scroll-behavior: smooth;
-    touch-action: none;
 }
 
 html::-webkit-scrollbar,
