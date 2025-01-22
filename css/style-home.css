@@ -48,3 +48,8 @@ section {
     --bs-bg-opacity: 1;
     background-color: #9787af!important;
 }
+
+a {
+    color: inherit; /* Usa el color del texto padre */
+    text-decoration: none; /* Quita el subrayado */
+}
