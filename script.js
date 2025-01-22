@@ -1,35 +1,41 @@
+// script.js actualizado con saludo personalizado y mejoras
+// Verifica si estamos en index.html y el formulario existe
+const loginForm = document.getElementById("login-form");
+if (loginForm) {
+    loginForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-document.getElementById("login-form").addEventListener("submit", async function (e) {
-    e.preventDefault();
+        try {
+            const response = await fetch("users.json");
+            if (!response.ok) throw new Error("No se pudo cargar el archivo JSON.");
+            const users = await response.json();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+            const user = users.find(user => user.username === username && user.password === password);
 
-    // Cargar usuarios desde JSON
-    try {
-        const response = await fetch("users.json");
-        if (!response.ok) throw new Error("No se pudo cargar el archivo JSON.");
-        const users = await response.json();
+            const messageDiv = document.getElementById("message");
+            if (user) {
+                messageDiv.textContent = "Login exitoso. Redirigiendo...";
+                messageDiv.style.color = "green";
 
-        const user = users.find(user => user.username === username && user.password === password);
+                // Guardar el nombre del usuario en localStorage
+                localStorage.setItem("username", username);
 
-        const messageDiv = document.getElementById("message");
-        if (user) {
-            messageDiv.textContent = "Login exitoso. Redirigiendo...";
-            messageDiv.style.color = "green";
-            setTimeout(() => {
-                window.location.href = "home.html";
-            }, 1000);
-        } else {
-            messageDiv.textContent = "Usuario o contraseña incorrectos. Inténtalo de nuevo.";
-            messageDiv.style.color = "red";
+                setTimeout(() => {
+                    window.location.href = "home.html";
+                }, 1000);
+            } else {
+                messageDiv.textContent = "Usuario o contraseña incorrectos. Inténtalo de nuevo.";
+                messageDiv.style.color = "red";
+            }
+        } catch (error) {
+            console.error("Error al cargar usuarios:", error);
+            document.getElementById("message").textContent = "Error al cargar usuarios.";
         }
-    } catch (error) {
-        console.error("Error al cargar usuarios:", error);
-        document.getElementById("message").textContent = "Error al cargar usuarios.";
-    }
-});
+    });
+}
 
 
 function controlMusic(action) {
@@ -77,6 +83,9 @@ function controlMusic(action) {
 }
 
 
+
+
+
 function cambiarMensaje() {
     const message = document.getElementById("hidden-message");
     const toggleButton = document.getElementById("toggle-button");
@@ -89,4 +98,43 @@ function cambiarMensaje() {
         message.classList.add("d-none"); // Ocultar el mensaje
         toggleButton.textContent = "Descubrir Mensaje"; // Restaurar texto original
     }
+}
+
+// Mostrar saludo personalizado en home.html
+if (window.location.pathname.includes("home.html")) {
+    window.addEventListener("DOMContentLoaded", () => {
+        const username = localStorage.getItem("username"); // Recuperar el nombre del usuario
+        if (username) {
+            const welcomeMessage = document.querySelector("#welcome h1"); // Seleccionar el h1
+            if (welcomeMessage) {
+                welcomeMessage.textContent = `Bienvenida, ${username} 💕`; // Cambiar el texto
+            } else {
+                console.error("El elemento del saludo no se encontró.");
+            }
+        } else {
+            console.error("No se encontró un nombre de usuario en localStorage.");
+        }
+    });
+}
+
+// Mostrar imagen y nombre en el navbar
+window.addEventListener("DOMContentLoaded", () => {
+    const username = localStorage.getItem("username");
+    if (username) {
+        const navbarUsername = document.getElementById("navbar-username");
+        navbarUsername.textContent = username; // Mostrar el nombre del usuario
+    }
+});
+
+const volumeControl = document.getElementById("volume-control");
+if (volumeControl) {
+    volumeControl.addEventListener("input", function (e) {
+        const volume = e.target.value; // Obtén el valor del deslizador
+        if (controlMusic.audioInstance) {
+            controlMusic.audioInstance.volume = volume; // Ajusta el volumen
+            console.log("Volumen ajustado a:", volume);
+        }
+    });
+} else {
+    console.log("El control de volumen no está presente en esta página.");
 }

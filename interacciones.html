@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Inicio Nina</title>
+    <title>Interacciones para la osita</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style-home.css">
 
@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-ini">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="home.html#">
                 <div class="d-flex align-items-center">
                     <img src="img4.jpg" alt="User" class="user-image me-2">
                     <p>@<span id="navbar-username"> </span></p>
@@ -31,16 +31,13 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link" href="#welcome">Inicio</a>
+                        <a class="nav-link" href="home.html#welcome">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="history.html">Historia</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="galery.html">Galería</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="interacciones.html">Interacciones</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contacto</a>
@@ -55,24 +52,44 @@
         </div>
     </nav>
 
-    <!-- Sección de Bienvenida -->
-    <section id="welcome" class="text-center bg-light py-5">
-        <div class="container-welcome text-left">
-            <h1>Bienvenida, Amor 💕</h1>
-            <p class="lead">Este espacio está hecho especialmente para ti.</p>
-        </div>
-    </section>
+    <section id="actions" class="row text-center bg-light">
+        <h3 class="actions-h3">Escoje según tu corazoncito ninosh :D </h3>
+        <div class="container col-md-6">
+            <section id="secret-messages" class="text-center py-5 bg-light ">
+                <div class="container">
+                    <h4>Descubre algo especial</h4>
+                    <p id="hidden-message" class="d-none mt-3">
+                        <br><b>¡SORPRESA!</b><br>
+                        Gracias por ser parte de mi vida.<br>
+                        Te amo más de lo que las palabras pueden expresar. 💖
+                    </p>
+                    <!-- Botón dinámico -->
+                    <button id="toggle-button" class="btn btn-secondary btn-lg mt-3"
+                        onclick="cambiarMensaje()">Descubrir Mensaje</button>
 
-    <!-- Sección de Mensaje -->
-    <section id="message" class="text-center py-5 bg-white">
-        <div class="container text-right">
-            <h3>Mensajito especial❤️</h3>
-            <p>
-                Desde el primer momento que te vi, supe que eras única.
-                Gracias por ser mi compañera y por llenar mi vida de amor.
-                Este pequeño espacio está dedicado a recordarte cuánto te amo.
-            </p>
+                </div>
+                <div class="col-md-6"></div>
+            </section>
         </div>
+
+        <div class="container col-md-6">
+            <section class="text-center justify-content-center py-5 bg-light">
+                <h5>Envuelvete en un recuerdo mágico</h5>
+                <div id="music">
+                    <button class="btn btn-success btn-lg m-3 ms-2" onclick="controlMusic('play')">Escuchar nuestra
+                        canción</button>
+                    <div class="container">
+                        <button class="btn btn-warning btn-lg mt-3" onclick="controlMusic('pause')">Pausar</button>
+                        <button class="btn btn-danger btn-lg mt-3" onclick="controlMusic('stop')">Detener</button>
+                    </div>
+                    <div class="div">
+                        <p class="text-white mt-3" >Controla el nivel de la canción de monitos ninosh</p>
+                        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </section>
 
     <!-- Script personalizado -->
