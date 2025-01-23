@@ -138,3 +138,32 @@ if (volumeControl) {
 } else {
     console.log("El control de volumen no está presente en esta página.");
 }
+
+
+//contador cuenta atras 14 de feb
+// Contador en reversa hasta el 14 de febrero
+const countdownElement = document.getElementById("countdown");
+
+if (countdownElement) {
+    const targetDate = new Date("2025-02-14T00:00:00").getTime();
+
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = ` ${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos.`;
+
+        if (distance < 0) {
+            clearInterval(countdown);
+            countdownElement.innerHTML = "¡Es 14 de Febrero! Puedes iniciar sesión.";
+            document.getElementById("username").disabled = false;
+            document.getElementById("password").disabled = false;
+            document.querySelector("button[type='submit']").disabled = false;
+        }
+    }, 1000);
+}
