@@ -117,6 +117,12 @@ if (window.location.pathname.includes("home.html")) {
     });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const welcomeTitle = document.getElementById("welcome-title");
+    typeWriterEffect(welcomeTitle, "Disfrutalo cuantas veces quieras. Es un espacio en donde te puedes sentir segura con todas tus emociones de nina.", 100);
+});
+
+
 // Mostrar imagen y nombre en el navbar
 window.addEventListener("DOMContentLoaded", () => {
     const username = localStorage.getItem("username");
@@ -167,3 +173,56 @@ if (countdownElement) {
         }
     }, 1000);
 }
+
+
+// Botón "No" que se mueve al pasar el ratón
+const noButton = document.getElementById("no-button");
+
+noButton.addEventListener("mouseover", () => {
+    const x = Math.random() * window.innerWidth * 0.8;
+    const y = Math.random() * window.innerHeight * 0.8;
+    noButton.style.position = "absolute";
+    noButton.style.left = `${x}px`;
+    noButton.style.top = `${y}px`;
+});
+
+// Redirección al hacer clic en "Sí"
+const yesButton = document.getElementById("yes-button");
+
+yesButton.addEventListener("click", () => {
+    window.location.href = "login.html";
+});
+
+
+//transicion al salir
+// Efecto de desvanecimiento antes de redirigir
+function redirectWithFade(url) {
+    document.body.style.opacity = 0;
+    setTimeout(() => {
+        window.location.href = url;
+    }, 1000); // El tiempo debe coincidir con la duración del CSS
+}
+
+// Ejemplo de uso: Redirección en "Sí"
+document.getElementById("yes-button")?.addEventListener("click", () => {
+    redirectWithFade("login.html");
+});
+
+
+//animacion
+// Función para animación tipo máquina de escribir
+function typeWriterEffect(element, text, delay = 100) {
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            element.textContent += text.charAt(i); // Añade letra por letra
+            i++;
+        } else {
+            clearInterval(interval); // Detén la animación al terminar
+        }
+    }, delay);
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const titleElement = document.getElementById("animated-title");
+    typeWriterEffect(titleElement, "¿Quieres ser mi San Valentín? 💖", 100);
+});
