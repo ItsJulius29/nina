@@ -21,7 +21,7 @@ if (yesButton) {
         launchConfetti(); // Lanza confeti
         setTimeout(() => {
             window.location.href = "login.html"; // Redirige tras 2 segundos
-        }, 2000);
+        }, 5000);
     });
 } else {
     console.error("El botón con id 'yes-button' no existe.");
@@ -34,7 +34,7 @@ function redirectWithFade(url) {
     document.body.style.opacity = 0;
     setTimeout(() => {
         window.location.href = url;
-    }, 1000); // El tiempo debe coincidir con la duración del CSS
+    }, 6000); // El tiempo debe coincidir con la duración del CSS
 }
 
 // Ejemplo de uso: Redirección en "Sí"
@@ -96,7 +96,7 @@ document.getElementById("yes-button")?.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const sapo = document.getElementById("sapo");
     const audio = document.getElementById("background-music");
-
+    
     if (sapo && audio) {
         sapo.addEventListener("click", () => {
             audio.currentTime = 0; // Reinicia la canción desde el inicio
@@ -109,4 +109,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+sapo.addEventListener("click", () => {
+    const x = Math.random() * window.innerWidth * 0.8; // 80% del ancho
+    const y = Math.random() * window.innerHeight * 0.8; // 80% de la altura
+    sapo.style.position = "absolute";
+    sapo.style.left = `${x}px`;
+    sapo.style.top = `${y}px`;
+});
 
+
+
+//alerta sabia que dirias que si
+const customAlert = document.getElementById("custom-alert");
+const closeAlert = document.getElementById("close-alert");
+
+document.getElementById("yes-button").addEventListener("click", () => {
+    customAlert.classList.remove("hidden");
+});
+
+closeAlert.addEventListener("click", () => {
+    customAlert.classList.add("hidden");
+});
