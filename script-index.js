@@ -119,14 +119,25 @@ sapo.addEventListener("click", () => {
 
 
 
-//alerta sabia que dirias que si
-const customAlert = document.getElementById("custom-alert");
-const closeAlert = document.getElementById("close-alert");
+document.addEventListener("DOMContentLoaded", () => {
+    const yesButton = document.getElementById("yes-button");
+    const customAlert = document.getElementById("custom-alert");
 
-document.getElementById("yes-button").addEventListener("click", () => {
-    customAlert.classList.remove("hidden");
+    if (yesButton && customAlert) {
+        yesButton.addEventListener("click", () => {
+            // Mostrar el modal
+            customAlert.classList.remove("hidden");
+
+            // Ocultar el modal automáticamente después de 2 segundos
+            setTimeout(() => {
+                customAlert.classList.add("hidden");
+
+                // Redirigir al login después de cerrar el modal
+                window.location.href = "login.html";
+            }, 2000);
+        });
+    } else {
+        console.error("No se encontró el botón 'Sí' o el contenedor del modal.");
+    }
 });
 
-closeAlert.addEventListener("click", () => {
-    customAlert.classList.add("hidden");
-});

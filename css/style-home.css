@@ -106,20 +106,6 @@ a {
     text-align: right;
 }
 
-
-#actions {
-    padding: 0%;
-    width: 100%;
-    height: 100%;
-}
-
-#actions.row {
-    width: 100%;
-    height: 100%;
-    padding: 0%;
-    margin-left: 1px;
-}
-
 .text-history {
     padding-top: 10%;
 }

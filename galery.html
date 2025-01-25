@@ -7,6 +7,7 @@
     <title>Galeria Nina</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style-home.css">
+    <link rel="stylesheet" href="css/style-galery.css">
 
 </head>
 
@@ -72,6 +73,68 @@
             </div>
         </div>
     </section>
+
+    <section class="py-5 bg-white">
+        <div id="photo-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+                <!-- Primer ítem del carrusel -->
+                <div class="carousel-item active">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="col-md-4 text-end pe-4">
+                            <p class="text-muted">Nuestro primer viaje juntos 💕</p>
+                        </div>
+                        <div>
+                            <img src="img/img1.JPG" class="d-block rounded shadow" alt="Foto 1" style="max-height: 600px;">
+                        </div>
+                        <div class="col-md-4 text-start ps-4">
+                            <p class="text-muted">¡Un momento inolvidable! 🌟</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Segundo ítem del carrusel -->
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="col-md-4 text-end pe-4">
+                            <p class="text-muted">Celebrando tu cumpleaños 🎂</p>
+                        </div>
+                        <div>
+                            <img src="img/img2.jpg" class="d-block rounded shadow" alt="Foto 2" style="max-height: 600px;">
+                        </div>
+                        <div class="col-md-4 text-start ps-4">
+                            <p class="text-muted">Una sonrisa que no olvidaré 😊</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Tercer ítem del carrusel -->
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="col-md-4 text-end pe-4">
+                            <p class="text-muted">Recuerdos de nuestra primera cita 🌸</p>
+                        </div>
+                        <div>
+                            <img src="img/img3.jpg" class="d-block rounded shadow" alt="Foto 3" style="max-height: 600px;">
+                        </div>
+                        <div class="col-md-4 text-start ps-4">
+                            <p class="text-muted">Solo tú y yo en el momento perfecto 🥰</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#photo-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#photo-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    
 
 </body>
 

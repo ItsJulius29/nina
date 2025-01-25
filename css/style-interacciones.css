@@ -1,0 +1,141 @@
+/* Juego de corazones */
+#game-area {
+    position: relative;
+    width: 90%; /* Ancho ajustado */
+    max-width: 400px; /* Máximo para pantallas grandes */
+    height: 300px; /* Altura reducida */
+    margin: 50px auto; /* Centrado vertical */
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #c3b1e1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#heart {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+    background-size: cover;
+    position: absolute;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Puzzle */
+#game-area-puzzle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    width: 90%; /* Ajusta ancho */
+    max-width: 600px; /* Máximo para pantallas grandes */
+    margin: 20px auto; /* Centrado */
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #1e1b22;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#puzzle-container,
+#drop-zone {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* Tamaño fijo para piezas */
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    background-size: 300px 300px; /* Tamaño relativo al puzzle */
+    cursor: grab;
+    border: 1px solid #ddd;
+}
+
+.puzzle-slot {
+    width: 100px;
+    height: 100px;
+    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 100%;
+}
+
+.arrow {
+    width: 40px; /* Tamaño reducido */
+    height: auto;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    #game-area {
+        height: 250px; /* Altura más pequeña */
+        margin-top: 20px; /* Centrado */
+    }
+
+    #heart {
+        width: 40px;
+        height: 40px;
+    }
+
+    #score {
+        font-size: 14px;
+    }
+
+    #game-area-puzzle {
+        flex-direction: column; /* Cambia a diseño vertical */
+        gap: 10px; /* Espaciado reducido */
+        padding: 10px;
+    }
+
+    #puzzle-container,
+    #drop-zone {
+        grid-template-columns: repeat(3, 80px); /* Ajusta las dimensiones */
+        grid-template-rows: repeat(3, 80px);
+        gap: 5px;
+    }
+
+    .puzzle-piece,
+    .puzzle-slot {
+        width: 80px; /* Tamaño reducido */
+        height: 80px;
+    }
+
+    .arrow {
+        width: 30px; /* Tamaño ajustado */
+    }
+}
+
+
