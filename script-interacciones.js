@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const puzzleContainer = document.getElementById("puzzle-container");
     const dropZone = document.getElementById("drop-zone");
 
-    const imageURL = "img/puzzle.jpg"; // Cambia esto por la ruta de tu imagen
+    const imageURL = "img/img3.jpg"; // Cambia esto por la ruta de tu imagen
     const gridSize = 3; // Puzzle 3x3
     const totalPieces = gridSize * gridSize;
 

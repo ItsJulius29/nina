@@ -40,7 +40,7 @@ section {
 
 .bg-light {
     --bs-bg-opacity: 1;
-    background-color: #c3b1e1 !important;
+    background-color: #bca9dd !important;
 }
 
 .bg-white {
@@ -70,6 +70,7 @@ a {
     object-fit: cover;
 }
 
+
 /* Centrar los enlaces del menú */
 .navbar-nav {
     gap: 15px;
@@ -84,6 +85,57 @@ a {
 .nav-link {
     color: white;
 }
+
+/* Sombra para el navbar */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Hover animado para los elementos del menú */
+.navbar-nav .nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 20px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white; /* Color inicial del texto */
+    background-color: transparent; /* Fondo transparente por defecto */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Transición para suavizar el cambio */
+}
+
+/* Cambios al pasar el cursor */
+.navbar-nav .nav-link:hover {
+    color: #6c757d; /* Cambia el color del texto */
+    background-color: white; /* Fondo blanco */
+    transform: scale(1.05); /* Agranda ligeramente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra al hover */
+    text-decoration: none; /* Quita subrayado */
+}
+
+/* Efecto animado de subrayado en hover */
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: white; /* Subrayado al pasar el cursor */
+    transition: width 0.3s ease; /* Animación suave */
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%; /* Llena todo el ancho en hover */
+}
+
+
+
+
+
+
+
 
 #music {
     width: 50%;

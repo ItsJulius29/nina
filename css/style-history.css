@@ -1,13 +1,22 @@
 .stroke-text {
-    font-size: 48px;
+    font-size: 4vw; /* Ajusta dinámicamente según el ancho de la pantalla */
     font-weight: bold;
     color: transparent;
-    -webkit-text-stroke: 2px #953de7cc;
+    -webkit-text-stroke: 1px #953de7cc; /* Reduce el grosor en móviles */
     overflow: hidden;
     display: inline-block;
     white-space: nowrap;
     border-right: 2px solid #953de7cc;
     animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
+    text-align: center;
+    margin: 0 auto; /* Centra el texto */
+}
+
+@media (max-width: 768px) {
+    .stroke-text {
+        font-size: 6vw; /* Ajusta el tamaño para pantallas más pequeñas */
+        -webkit-text-stroke: 0.8px #953de7cc; /* Reduce un poco el grosor */
+    }
 }
 
 @keyframes typing {
