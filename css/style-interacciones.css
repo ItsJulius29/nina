@@ -1,3 +1,8 @@
+
+#actions,#juegonino {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+}
 /* Juego de corazones */
 #game-area {
     position: relative;
@@ -138,4 +143,19 @@
     }
 }
 
-
+.shadow-container {
+    background: rgba(0, 0, 0, 0); /* Fondo blanco */
+    padding: 20px;
+    box-shadow: 
+        0px 30px 0px -10px #bca9dd ,
+        0px -20px 0px -10px #bca9dd ,
+        20px 0px 0px -10px #bca9dd ,
+        -20px 0px 0px -10px rgba(0, 0, 0, 0),
+        0px 0px 0px 10px #0ee9cc8f;
+    transition: transform 0.3s ease; /* Efecto suave al interactuar */
+}
+.shadow-container:hover {
+    transform: scale(1.02); /* Efecto de agrandamiento al pasar el ratón */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 
+                0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}

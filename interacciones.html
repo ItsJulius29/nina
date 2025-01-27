@@ -17,7 +17,7 @@
 
             <a class="navbar-brand" href="home.html#">
                 <div class="d-flex align-items-center">
-                    <img src="img4.jpg" alt="User" class="user-image me-2">
+                    <img src="img/user.jpeg" alt="User" class="user-image me-2">
                     <p>@<span id="navbar-username"> </span></p>
                 </div>
             </a>
@@ -54,9 +54,10 @@
 
     <section id="actions" class="row text-center bg-light">
         <h3 class="actions-h3">Escoje según tu corazoncito ninosh :D </h3>
-        <div class="container col-md-6">
+        
+        <div class="container col-md-6 sopresa-div">
             <section id="secret-messages" class="text-center py-5 bg-light ">
-                <div class="container">
+                <div class="container shadow-container">
                     <h4>Descubre algo especial</h4>
                     <p id="hidden-message" class="d-none mt-3">
                         <br><b>¡SORPRESA!</b><br>
@@ -68,11 +69,10 @@
                         onclick="cambiarMensaje()">Descubrir Mensaje</button>
 
                 </div>
-                <div class="col-md-6"></div>
             </section>
         </div>
 
-        <div class="container col-md-6">
+        <div class="container col-md-6 sorpresa-div">
             <section class="text-center justify-content-center py-5 bg-light">
                 <h5>Envuelvete en un recuerdo mágico</h5>
                 <div  id="music">
@@ -89,10 +89,9 @@
                 </div>
             </section>
         </div>
-
     </section>
 
-    <section class="row text-center bg-white">
+    <section id="juegonino" class="row text-center bg-white">
         <h3 class="mt-5">Jueguito de la ninash</h3>
         <div id="game-area">
             <div id="score">Puntos: 0</div>
@@ -116,6 +115,7 @@
 
 <script src="script.js"></script>
 <script src="script-interacciones.js"></script>
+<script src="script-home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>
