@@ -7,6 +7,9 @@
     <title>Contacto Nina</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style-home.css">
+    <link rel="stylesheet" href="css/style-contacto.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 
 </head>
 
@@ -14,51 +17,50 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-ini">
         <div class="container-fluid">
-
             <a class="navbar-brand" href="profile.html">
                 <div class="d-flex align-items-center">
                     <img src="img/user.jpeg" alt="User" class="user-image me-2">
                     <p>@<span id="navbar-username"> </span></p>
                 </div>
             </a>
-
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav ">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="history.html">Historia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="galery.html">Galería</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="interacciones.html">Interacciones</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">Historia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galery.html">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link" href="interacciones.html">Interacciones</a></li>
                 </ul>
             </div>
             <button class="btn btn-danger ms-auto">
-                <a href="login.html" class="text-white text-decoration-none">
-                    Cerrar Sesion
-                </a>
+                <a href="login.html" class="text-white text-decoration-none">Cerrar Sesión</a>
             </button>
         </div>
     </nav>
 
-    contacto mapa
+    <!-- Contenedor del Mapa -->
+    <section class="contact-container bg-white">
+        <br>
+        <h2 class="text-center mt-5" >Lugares Ninos Especiales</h2>
+        <p class="text-center" >Estos son los lugares que han sido parte importante de nuestra historia.</p>
+        <div id="map" style="height: 500px; width: 100%;"></div>
+    </section>
 
-
+    <section id="lugares-destacados" class="bg-light">
+        <div class="row" id="lugares-container">
+            <h3 class="text-center">🌍 Lugares Destacados</h3>
+            
+        </div>
+    </section>
+    
 </body>
 
 <script src="script.js"></script>
 <script src="script-home.js"></script>
+<script src="script-contacto.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

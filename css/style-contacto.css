@@ -1,0 +1,142 @@
+.contact-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* MAPA */
+#map {
+    width: 80%;  /* Reduce el ancho del mapa al 80% */
+    max-width: 1500px; /* Limita el tamaño máximo */
+    height: 450px; /* Reduce un poco la altura */
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+/* Responsividad del mapa */
+@media (max-width: 768px) {
+    
+}
+
+/* SECCIÓN LUGARES DESTACADOS */
+#lugares-destacados {
+    padding: 20px;
+}
+
+.lugares-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* TARJETAS DE LUGARES */
+.lugar-card {
+    display: flex;
+    flex-direction: row;  /* Imagen a la izquierda y texto a la derecha */
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lugar-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* IMAGEN DENTRO DE LA TARJETA */
+.lugar-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* CONTENIDO DE LA TARJETA */
+.lugar-card .card-body {
+    padding: 15px;
+    text-align: left;
+    flex-grow: 1;  /* Que el contenido ocupe todo el espacio disponible */
+}
+
+.lugar-card h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.lugar-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* POPUPS DEL MAPA */
+.leaflet-popup-content {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.popup-content {
+    max-width: 200px;
+}
+
+.popup-content h4 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.popup-content p {
+    font-size: 14px;
+    color: #555;
+}
+
+.popup-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+@media (max-width: 1024px) {
+    #map {
+        width: 90%; /* Se ajusta a pantallas medianas */
+        height: 400px;
+    }
+}
+
+/* RESPONSIVE: EN PANTALLAS PEQUEÑAS LA IMAGEN VA ARRIBA */
+@media (max-width: 768px) {
+    .lugar-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .lugar-card img {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #map {
+        width: 95%; /* Se ajusta en móviles */
+        height: 350px;
+    }
+}
+
+/* 📌 NUEVA REGLA: Para móviles pequeños */
+@media (max-width: 480px) {
+    #map {
+        width: 95%; /* Aún más reducido */
+        height: 350px; /* Ajuste de altura */
+    }
+}
