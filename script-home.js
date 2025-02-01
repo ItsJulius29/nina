@@ -45,7 +45,7 @@ function typeWriterEffect(element, text, delay = 100) {
 // Aplicar efecto de escritura en el mensaje de bienvenida
 document.addEventListener("DOMContentLoaded", () => {
     const welcomeTitle = document.getElementById("welcome-title");
-    typeWriterEffect(welcomeTitle, "Disfrútalo cuantas veces quieras. Es un espacio en donde te puedes sentir segura con todas tus emociones de niña.", 100);
+    typeWriterEffect(welcomeTitle, "Disfrútalo esta página web cuantas veces quieras. Es un espacio en donde te puedes sentir segura con todas tus emociones de niña.", 100);
 });
 
 // Cerrar sesión cuando el usuario presione el botón "Cerrar Sesión"
