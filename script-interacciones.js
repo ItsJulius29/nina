@@ -1,10 +1,63 @@
-function controlMusic(action) {
-    // Crear o reutilizar la instancia de audio
-    if (!controlMusic.audioInstance) {
-        controlMusic.audioInstance = new Audio("music/music1.mp3");
-    }
-    const audio = controlMusic.audioInstance;
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
+const auth = getAuth();
+
+// Verifica si el usuario está autenticado antes de cargar la página
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        // Si no está autenticado, redirigir a login
+        window.location.href = "login.html";
+    } else {
+        // Mostrar el nombre del usuario en el navbar
+        const navbarUsername = document.getElementById("navbar-username");
+        if (navbarUsername) {
+            navbarUsername.textContent = user.email.split("@")[0]; // Muestra el nombre antes del @ del correo
+        }
+    }
+});
+
+// Cerrar sesión al hacer clic en el botón
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutButton = document.getElementById("logout-button");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            signOut(auth).then(() => {
+                window.location.href = "login.html";
+            }).catch((error) => {
+                console.error("Error al cerrar sesión:", error);
+            });
+        });
+    }
+});
+
+
+// Agregar evento si el botón existe
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("toggle-button");
+    if (toggleButton) {
+        toggleButton.addEventListener("click", cambiarMensaje);
+    }
+});
+function cambiarMensaje() {
+    const message = document.getElementById("hidden-message");
+    const toggleButton = document.getElementById("toggle-button");
+
+    if (message.classList.contains("d-none")) {
+        message.classList.remove("d-none");
+        toggleButton.textContent = "Ocultar Mensaje";
+    } else {
+        message.classList.add("d-none");
+        toggleButton.textContent = "Descubrir Mensaje";
+    }
+}
+
+// Crear la instancia global de audio
+const audio = new Audio("music/music1.mp3");
+audio.volume = 0.5; // Volumen inicial
+
+// Control de reproducción de música
+window.controlMusic = function (action) {
     switch (action) {
         case "play":
             if (audio.paused || audio.ended) {
@@ -13,62 +66,36 @@ function controlMusic(action) {
                 }).catch(error => {
                     console.error("Error al reproducir música:", error);
                 });
-            } else {
-                console.log("La música ya está en reproducción.");
             }
             break;
 
         case "pause":
-            if (!audio.paused) {
-                audio.pause();
-                console.log("Música pausada");
-            } else {
-                console.log("La música ya está pausada.");
-            }
+            audio.pause();
+            console.log("Música pausada");
             break;
 
         case "stop":
-            if (!audio.paused || audio.currentTime > 0) {
-                audio.pause();
-                audio.currentTime = 0; // Reiniciar al principio
-                console.log("Música detenida");
-            } else {
-                console.log("No hay música para detener.");
-            }
+            audio.pause();
+            audio.currentTime = 0; // Reiniciar al principio
+            console.log("Música detenida");
             break;
 
         default:
             console.log("Acción no válida. Usa 'play', 'pause' o 'stop'.");
     }
-}
+};
 
-function cambiarMensaje() {
-    const message = document.getElementById("hidden-message");
-    const toggleButton = document.getElementById("toggle-button");
-
-    // Alternar la visibilidad del mensaje
-    if (message.classList.contains("d-none")) {
-        message.classList.remove("d-none"); // Mostrar el mensaje
-        toggleButton.textContent = "Ocultar Mensaje"; // Cambiar texto del botón
-    } else {
-        message.classList.add("d-none"); // Ocultar el mensaje
-        toggleButton.textContent = "Descubrir Mensaje"; // Restaurar texto original
-    }
-}
-
-
-const volumeControl = document.getElementById("volume-control");
-if (volumeControl) {
-    volumeControl.addEventListener("input", function (e) {
-        const volume = e.target.value; // Obtén el valor del deslizador
-        if (controlMusic.audioInstance) {
-            controlMusic.audioInstance.volume = volume; // Ajusta el volumen
+// Control del volumen
+document.addEventListener("DOMContentLoaded", () => {
+    const volumeControl = document.getElementById("volume-control");
+    if (volumeControl) {
+        volumeControl.addEventListener("input", function (e) {
+            const volume = e.target.value;
+            audio.volume = volume;
             console.log("Volumen ajustado a:", volume);
-        }
-    });
-} else {
-    console.log("El control de volumen no está presente en esta página.");
-}
+        });
+    }
+});
 
 
 document.addEventListener("DOMContentLoaded", () => {

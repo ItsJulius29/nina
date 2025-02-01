@@ -1,3 +1,32 @@
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+const auth = getAuth();
+
+// Redirigir si no está autenticado
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        window.location.href = "login.html"; // Bloquea acceso a la página si no está logueado
+    } else {
+        // Mostrar nombre de usuario en el navbar
+        const navbarUsername = document.getElementById("navbar-username");
+        if (navbarUsername) {
+            navbarUsername.textContent = user.email.split("@")[0]; // Mostrar solo el nombre antes del @
+        }
+    }
+});
+
+// Cerrar sesión
+const logoutButton = document.getElementById("logout-button");
+if (logoutButton) {
+    logoutButton.addEventListener("click", () => {
+        signOut(auth).then(() => {
+            window.location.href = "login.html"; // Redirige al login tras cerrar sesión
+        }).catch((error) => {
+            console.error("Error al cerrar sesión:", error);
+        });
+    });
+}
+
 // Inicializar el mapa
 var map = L.map('map').setView([-12.0464, -77.0428], 13); // Coordenadas de Lima
 

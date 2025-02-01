@@ -21,14 +21,37 @@
         <br>
         <p id="countdown"></p>
         <form id="login-form">
-            <input class="mt-5" type="text" id="username" placeholder="Username" required>
-            <input class="mt-3" type="password" id="password" placeholder="Password" required>
+            <input class="mt-5" type="email" id="username" placeholder="Correo Electrónico" required>
+            <input class="mt-3" type="password" id="password" placeholder="Contraseña" required>
             <button type="submit">Login</button>
         </form>
         <div id="message"></div>
     </div>
-    
-    <script src="script.js"></script>
+
+    <!-- Agregar el SDK de Firebase aquí -->
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJvaodFJfG2HBYfZXZpAuHgClaJx94E-w",
+            authDomain: "nina-76797.firebaseapp.com",
+            projectId: "nina-76797",
+            storageBucket: "nina-76797.firebasestorage.app",
+            messagingSenderId: "561663225891",
+            appId: "1:561663225891:web:8cf2b120cdb349e084c196",
+            measurementId: "G-DNMCC4N3KX"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        window.auth = auth; // Hacer auth accesible desde script.js
+    </script>
+
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
