@@ -98,12 +98,5 @@ if (countdownElement) {
     }, 1000);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("La página ha cargado correctamente.");
-
-    // Mantener el estado visual antes de verificar la autenticación
-    document.body.style.opacity = "0.5"; // Agregar transparencia hasta que se autentique
-});
-
 
 
