@@ -19,14 +19,13 @@ const auth = getAuth(app);
 
 // **🔹 SOLO VERIFICAR AUTENTICACIÓN EN `login.html`**
 if (window.location.pathname.includes("login.html")) {
-    document.body.style.display = "none"; // Ocultar la página mientras se verifica la autenticación
 
     auth.onAuthStateChanged(user => {
         if (user) {
             console.log("✅ Usuario ya autenticado:", user.email);
             window.location.href = "home.html"; // Redirigir automáticamente si ya está logueado
         } else {
-            document.body.style.display = "block"; // Mostrar login si no está autenticado
+            document.body.style.display = "flex"; // Mostrar login si no está autenticado
         }
     });
 
