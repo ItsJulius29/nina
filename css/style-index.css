@@ -1,3 +1,7 @@
+html {
+    translate: no;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,54 +13,67 @@ body {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     overflow: hidden;
     opacity: 1;
-    animation: fadeIn 1s ease-in forwards; /* Transición suave al cargar */
+    animation: fadeIn 1s ease-in forwards;
     transition: opacity 1s ease;
     flex-direction: column;
+    text-align: center;
 }
 
+/* Animación de entrada */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
+/* Contenedor flexible */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    flex-grow: 1;
     justify-content: center;
 }
 
+/* ✅ Título RESPONSIVE */
 h1 {
     font-size: 5rem;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;
     animation: pulse 1.5s infinite;
+    translate: no;
+    word-wrap: break-word;
+    max-width: 90%;
 }
 
+/* Efecto de "parpadeo" */
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ✅ RESPONSIVE: Tamaño dinámico del título */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Se reduce en pantallas pequeñas */
     }
 }
 
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ✅ Botones centrados y responsive */
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 1.2rem;
     border: none;
     border-radius: 8px;
@@ -64,6 +81,7 @@ h1 {
     transition: transform 0.2s, background-color 0.3s;
 }
 
+/* Botón "Sí" */
 #yes-button {
     background-color: #ff6f61;
     color: #fff;
@@ -74,6 +92,7 @@ h1 {
     transform: scale(1.1);
 }
 
+/* Botón "No" (que se mueve) */
 #no-button {
     background-color: #6c757d;
     color: #fff;
@@ -81,46 +100,14 @@ h1 {
     transition: transform 0.2s ease;
 }
 
-/* Estilo del cursor */
-#animated-title::after {
-    content: "|";
-    animation: blink 0.5s step-end infinite;
-}
-
-@keyframes blink {
-    from, to {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-}
-
-@keyframes jump {
-    0% {
-        transform: translate(-50%, 0) scale(1);
-    }
-    30% {
-        transform: translate(-50%, -20px) scale(1.1);
-    }
-    50% {
-        transform: translate(-50%, 0) scale(1);
-    }
-    70% {
-        transform: translate(-50%, -10px) scale(1.05);
-    }
-    100% {
-        transform: translate(-50%, 0) scale(1);
-    }
-}
-
+/* ✅ Sapo responsivo y bien posicionado */
 #sapo {
     position: absolute;
-    bottom: 10px; /* Pegado a la parte inferior */
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
-    width: 150px;
+    width: 120px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -131,6 +118,20 @@ h1 {
     transition: transform 0.3s, filter 0.3s;
 }
 
+@keyframes jump {
+    0% { transform: translate(-50%, 0) scale(1); }
+    30% { transform: translate(-50%, -20px) scale(1.1); }
+    50% { transform: translate(-50%, 0) scale(1); }
+    70% { transform: translate(-50%, -10px) scale(1.05); }
+    100% { transform: translate(-50%, 0) scale(1); }
+}
+
+/* ✅ Evitar que el sapo se salga en móviles */
+@media (max-width: 480px) {
+    #sapo {
+        width: 90px;
+    }
+}
 
 .custom-alert {
     position: fixed;
