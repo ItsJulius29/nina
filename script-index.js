@@ -1,19 +1,26 @@
-// 🎯 Botón "No" que se mueve sin salirse de la pantalla
 const noButton = document.getElementById("no-button");
-if (noButton) {
-    noButton.addEventListener("mouseover", () => {
-        const maxWidth = window.innerWidth - noButton.clientWidth - 20;
-        const maxHeight = window.innerHeight - noButton.clientHeight - 20;
 
-        const x = Math.random() * maxWidth;
-        const y = Math.random() * maxHeight;
+function moveNoButton() {
+    const maxWidth = window.innerWidth - noButton.clientWidth - 20;
+    const maxHeight = window.innerHeight - noButton.clientHeight - 20;
 
-        noButton.style.position = "absolute";
-        noButton.style.left = `${x}px`;
-        noButton.style.top = `${y}px`;
-    });
+    const x = Math.random() * maxWidth;
+    const y = Math.random() * maxHeight;
+
+    noButton.style.position = "absolute";
+    noButton.style.left = `${x}px`;
+    noButton.style.top = `${y}px`;
+}
+
+// Detectar si es un dispositivo táctil
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
+
+// Para PC (hover)
+if (!isTouchDevice) {
+    noButton.addEventListener("mouseover", moveNoButton);
 } else {
-    console.error("El botón con id 'no-button' no existe.");
+    // Para móviles (toque o clic)
+    noButton.addEventListener("click", moveNoButton);
 }
 
 // ✅ Redirección con animación fluida en "Sí"
@@ -114,3 +121,4 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("No se encontró el botón 'Sí' o el contenedor del modal.");
     }
 });
+
