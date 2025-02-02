@@ -31,8 +31,8 @@ body {
 }
 
 .login-container img {
-    width: 100px; /* Ajusta el tamaño de la imagen */
-    height: 100px; /* Ajusta el tamaño de la imagen */
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: 200px; /* Ajusta el tamaño de la imagen */
     margin-bottom: 15px; /* Espaciado entre la imagen y el texto */
     border-radius: 50%; /* Hace que sea redonda */
     object-fit: cover; /* Recorta la imagen si es necesario */

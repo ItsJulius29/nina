@@ -58,9 +58,16 @@ h1 {
     }
 }
 
+@media (max-width: 600px) {
+    #no-button {
+        font-size: 1.5rem; /* Reduce el tamaño en pantallas pequeñas */
+        padding: 8px 15px;
+    }
+}
+
 @media (max-width: 480px) {
     h1 {
-        font-size: 2rem;
+        font-size: 1rem;
     }
 }
 
@@ -97,7 +104,10 @@ h1 {
     background-color: #6c757d;
     color: #fff;
     position: relative;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, left 0.3s ease, top 0.3s ease; 
+    max-width: 100px; /* Evita que el botón se agrande demasiado en pantallas grandes */
+    white-space: nowrap; /* Evita que el texto se corte */
+    overflow: hidden;
 }
 
 /* ✅ Sapo responsivo y bien posicionado */

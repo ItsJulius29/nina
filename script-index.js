@@ -2,8 +2,8 @@
 const noButton = document.getElementById("no-button");
 if (noButton) {
     noButton.addEventListener("mouseover", () => {
-        const maxWidth = window.innerWidth - noButton.clientWidth - 10;
-        const maxHeight = window.innerHeight - noButton.clientHeight - 10;
+        const maxWidth = window.innerWidth - noButton.clientWidth - 20;
+        const maxHeight = window.innerHeight - noButton.clientHeight - 20;
 
         const x = Math.random() * maxWidth;
         const y = Math.random() * maxHeight;

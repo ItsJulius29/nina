@@ -5,18 +5,16 @@ const auth = getAuth();
 // Verifica si el usuario está autenticado antes de cargar la página
 onAuthStateChanged(auth, (user) => {
     if (!user) {
-        // Si no está autenticado, redirigir a login
         window.location.href = "login.html";
     } else {
-        // Mostrar el nombre del usuario en el navbar
         const navbarUsername = document.getElementById("navbar-username");
         if (navbarUsername) {
-            navbarUsername.textContent = user.email.split("@")[0]; // Muestra el nombre antes del @ del correo
+            navbarUsername.textContent = user.email.split("@")[0];
         }
     }
 });
 
-// Cerrar sesión al hacer clic en el botón
+// Cerrar sesión
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout-button");
     if (logoutButton) {
@@ -24,9 +22,28 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             signOut(auth).then(() => {
                 window.location.href = "login.html";
-            }).catch((error) => {
-                console.error("Error al cerrar sesión:", error);
-            });
+            }).catch((error) => console.error("Error al cerrar sesión:", error));
         });
     }
+});
+
+// Expanding Cards - Mejora de rendimiento
+document.querySelectorAll('.expanding-cards').forEach(expandingCards => {
+    expandingCards.addEventListener("mouseover", (event) => {
+        if (event.target.classList.contains("card")) {
+            document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+            event.target.classList.add("active");
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".expanding-cards .card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            cards.forEach(c => c.classList.remove("active")); // Quita la clase de otros
+            card.classList.add("active"); // Activa la tarjeta tocada
+        });
+    });
 });

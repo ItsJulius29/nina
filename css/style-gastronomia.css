@@ -78,7 +78,7 @@
 }
 
 /* Media Query para dispositivos pequeños */
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     
     .gallery-container {
         grid-template-columns: 1fr; /* Una sola columna */
@@ -99,4 +99,137 @@
         font-size: 0.9rem;
         padding: 10px;
     }
+
+    .expanding-cards {
+        display: flex;
+        flex-direction: column; /* Acomoda los elementos en FILAS */
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .card {
+        width: 90%; /* Ocupa casi todo el ancho del contenedor */
+        height: auto; /* Se ajusta al contenido */
+        aspect-ratio: 16/9; /* Mantiene una proporción adecuada */
+        flex: none;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .card h3 {
+        opacity: 1 !important;
+        text-align: left; /* 📌 Alinea el texto a la izquierda */
+        width: auto;
+        height: 50px;
+        font-size: 0.6rem;
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 10px 0 10px 0; /* 📌 Bordes redondeados */
+        position: absolute;
+        top: 10px; /* 📌 Lo coloca en la parte superior */
+        left: 10px; /* 📌 Lo alinea a la izquierda */
+        margin: 0;
+    }
+
+    .card:hover h3 {
+        opacity: 1;
+    }
+    
+    .card.active {
+        flex: 4;
+        transform: scale(1.1); /* Aumenta la escala en móviles */
+    }
+
+
+}
+
+
+.expanding-cards {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden correctamente */
+}
+
+.card {
+    flex: 1;
+    height: 300px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: flex 0.5s ease-in-out;
+    position: relative;
+    text-decoration: none; /* Evita subrayado */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.card h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover h3 {
+    opacity: 1;
+}
+
+.card.active {
+    flex: 4;
+}
+
+.category-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.category-section h2{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.carousel img {
+    width: 200px;
+    height: 300px;
+    margin: 8px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.carousel img:hover {
+    transform: scale(1.1);
+}
+
+.card-link {
+    display: block;  /* Hace que el enlace cubra todo el contenedor */
+    text-decoration: none; /* Evita subrayado del enlace */
+    color: inherit; /* Mantiene el color original del texto */
 }
