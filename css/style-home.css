@@ -16,7 +16,7 @@ body::-webkit-scrollbar {
 }
 
 .section-h3 {
-    min-height: 70vh;
+    min-height: 30vh;
 }
 
 
@@ -132,11 +132,6 @@ a {
 
 
 
-
-
-
-
-
 #music {
     width: 50%;
     height: auto;
@@ -151,11 +146,13 @@ a {
 .text-left {
     text-align: left;
     padding-left: 10%;
-    padding-top: 20%;
+    padding-top: 10%;
+    padding-right: 10%;
 }
 
 .text-right {
     text-align: right;
+    padding: 0% 10% 10% 10%;
 }
 
 .text-history {

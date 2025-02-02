@@ -28,7 +28,7 @@ if (logoutButton) {
 }
 
 // Inicializar el mapa
-var map = L.map('map').setView([-12.0464, -77.0428], 13); // Coordenadas de Lima
+var map = L.map('map').setView([-12.097971, -77.068382], 13); // Coordenadas de Lima
 
 // Agregar el tile layer (CartoDB Voyager)
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -40,27 +40,75 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
 // Lugares especiales con popups personalizados
 var lugares = [
     {
-        coords: [-12.0433, -77.0283],
-        title: "Nuestro Primer Viaje ✈️",
+        coords: [-12.0599863, -77.1314227],
+        title: "Cruce de miradas por primera vez",
         description: "El lugar donde comenzó nuestra primera aventura juntos.",
         image: "img/img3.jpg"
     },
     {
-        coords: [-12.0564, -77.0372],
-        title: "Cena Especial 🍽️",
-        description: "Aquí tuvimos nuestra primera cena romántica.",
+        coords: [  -12.0768298, -77.0824769241177],
+        title: "Primer Beso🍽️",
+        description: "Aquí tuvimos nuestra primer beso.",
         image: "img/img1.webp"
     },
     {
-        coords: [-12.0754, -77.0301],
+        coords: [-12.11667, -77.05],
         title: "Un Día Inolvidable 🌅",
         description: "Un hermoso atardecer que nunca olvidaremos.",
         image: "img/img2.webp"
     },
     {
-        coords: [-12.09428725, -77.0043528785536],
-        title: "Parque de las aguas",
-        description: "Un hermoso día en el parque de las aguas.",
+        coords: [-12.129054, -77.035124],
+        title: "Malecon - 21 de Sep",
+        description: "Una hermosa tarde, salida por el 21 de septiembre y flores amarillas",
+        image: "img/img2.webp"
+    },
+    {
+        coords: [-12.148867, -77.023070],
+        title: "Barranco - 20 de Oct",
+        description: "Un dia que nunca se podrá olvidar, porque aqui es donde oficializamos nuestro amor siendo enamoraditos.",
+        image: "img/img2.webp"
+    },
+    {
+        coords: [-12.060843, -77.036982],
+        title: "Museo MALI",
+        description: "Visita al museo como ninosh cultos.",
+        image: "img/img2.webp"
+    },
+    {
+        coords: [-12.136622, -77.023056],
+        title: "Exposición del Color",
+        description: "Visita a la esposicion del color, ese mismo dia fuimos enamorados.",
+        image: "img/img3.jpg"
+    },
+    {
+        coords: [-12.070622, -77.033280],
+        title: "Parque de las Aguas",
+        description: "Paseito por el circuito mágico del agua.",
+        image: "img/img1.webp"
+    },
+    {
+        coords: [-12.072640, -77.087048],
+        title:"Parque de las leyendas",
+        description: "Paseo al parque de las leyendas, ver monitos y dentro de un verano inolvidable",
+        image: "img/img2.webp"
+    },
+    {
+        coords: [-12.073460, -77.166048],
+        title: "La punta ",
+        description: "Respiro en la punta, conectando con el mar",
+        image: "img/img2.webp"
+    },
+    {
+        coords: [-12.393834, -76.777289],
+        title: "Playa San Bartolo",
+        description: "Viaje a la playita con familia del monito",
+        image: "img/img2.webp"
+    },
+    {
+        coords: [-12.0876959, -77.0548991],
+        title: "Peruano Japones Exposicion",
+        description: "Visita a otra exposicion en un verano lindo",
         image: "img/img2.webp"
     }
 ];

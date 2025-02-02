@@ -7,7 +7,7 @@
 #map {
     width: 80%;  /* Reduce el ancho del mapa al 80% */
     max-width: 1500px; /* Limita el tamaño máximo */
-    height: 450px; /* Reduce un poco la altura */
+    height: 700px; /* Reduce un poco la altura */
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);

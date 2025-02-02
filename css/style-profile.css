@@ -10,11 +10,12 @@ body {
 .profile-header {
     position: relative;
     width: 100%;
-    height: 400px;
-    background: url('../img/img3.jpg') center/cover no-repeat;
+    height: 500px;
+    background: url('../img/nina/nina1.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
+    filter: opacity(80%);
 }
 
 /* Imagen de perfil superpuesta */
@@ -28,7 +29,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
-    object-fit: cover; 
+    object-fit: cover;
+    
 }
 
 /* Información debajo de la imagen */

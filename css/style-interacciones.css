@@ -142,3 +142,8 @@
         width: 30px; /* Tamaño ajustado */
     }
 }
+
+#qr-nina{
+    width: 200px;
+    height: 200px;
+}
