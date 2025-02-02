@@ -15,7 +15,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: opacity(80%);
+    filter: opacity(100%);
 }
 
 /* Imagen de perfil superpuesta */
@@ -30,7 +30,6 @@ body {
     transform: translateX(-50%);
     background-color: white;
     object-fit: cover;
-    
 }
 
 /* Información debajo de la imagen */
