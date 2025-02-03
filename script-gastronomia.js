@@ -27,28 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ✅ Expanding Cards - Diferente comportamiento en PC y móviles
+// ✅ Expanding Cards - Comportamiento diferente en PC y móviles
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
-    let lastClickedCard = null; // Guarda la última tarjeta tocada
-    let clickTimer = null; // Temporizador para el segundo clic
-
-    // Función de redirección
-    function redirectToSection(card) {
-        const link = card.getAttribute("href");
-        if (link && link !== "#") {
-            console.log("📌 Redirigiendo a:", link);
-            window.location.href = link; // Redirige a la sección
-        }
-    }
-
-    // Manejo de eventos en PC
-    function handleHover(event) {
-        if (window.innerWidth > 768) { // 💻 En PC
-            document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-            event.currentTarget.classList.add("active");
-        }
-    }
 
     function handleClick(event) {
         const card = event.currentTarget;
@@ -56,33 +37,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!link || link === "#") return; // Previene errores si el href está vacío
 
-        if (window.innerWidth <= 768) { // 📱 En móviles
+        if (window.innerWidth <= 768) { // 📱 Móviles - Redirige directo
+            console.log("📌 Redirigiendo a:", link);
+            window.location.href = link;
+        } else { // 💻 PC - Expande la imagen y redirige al hacer clic
             event.preventDefault();
+            document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+            card.classList.add("active");
 
-            if (lastClickedCard === card) {
-                // Si es el mismo card tocado nuevamente, redirigir
-                redirectToSection(card);
-            } else {
-                // Expandir la imagen en el primer clic
-                lastClickedCard = card;
-                document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-                card.classList.add("active");
-
-                // Si en 1.5 segundos no hay otro clic, resetear
-                clearTimeout(clickTimer);
-                clickTimer = setTimeout(() => {
-                    lastClickedCard = null;
-                }, 1500);
-            }
-        } else { // 💻 En PC
-            event.preventDefault(); // Evita la redirección automática
-            redirectToSection(card); // Redirige inmediatamente en PC
+            setTimeout(() => {
+                window.location.href = link;
+            }, 300); // Pequeño delay para UX
         }
     }
 
-    // Aplica los eventos a todas las tarjetas
+    // Aplica eventos a todas las tarjetas
     cards.forEach(card => {
-        card.addEventListener("mouseover", handleHover); // Expansión al pasar el mouse en PC
+        if (window.innerWidth > 768) {
+            card.addEventListener("mouseover", () => {
+                document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+                card.classList.add("active");
+            });
+        }
         card.addEventListener("click", handleClick);
         card.addEventListener("touchend", handleClick, { passive: true }); // Soporte para móviles
     });
