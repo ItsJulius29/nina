@@ -27,55 +27,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ✅ Expanding Cards: Diferente comportamiento para PC y Móvil
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
 
-    function handleMobileClick(event) {
-        event.preventDefault(); // Previene saltos raros
-        const link = event.currentTarget.getAttribute("href");
-
-        if (link && link !== "#") {
-            console.log("📌 Redirigiendo en móvil a:", link);
-            window.location.href = link;
-        }
-    }
-
-    function handleDesktopClick(event) {
-        event.preventDefault();
-        const card = event.currentTarget;
-        const link = card.getAttribute("href");
-
-        if (!link || link === "#") return;
-
-        document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-        card.classList.add("active");
-
-        setTimeout(() => {
-            console.log("📌 Redirigiendo en PC a:", link);
-            window.location.href = link;
-        }, 500);
-    }
-
-    function applyEventListeners() {
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
-
-        cards.forEach(card => {
-            card.removeEventListener("click", handleMobileClick);
-            card.removeEventListener("click", handleDesktopClick);
-
-            if (isMobile) {
-                card.addEventListener("click", handleMobileClick);
-            } else {
-                card.addEventListener("mouseover", () => {
-                    document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-                    card.classList.add("active");
-                });
-                card.addEventListener("click", handleDesktopClick);
+    cards.forEach(card => {
+        // 🖱 Para PC: Expandir al pasar el mouse y redirigir al hacer click
+        card.addEventListener("mouseover", () => {
+            if (window.innerWidth > 768) { // Solo en PC
+                document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+                card.classList.add("active");
             }
         });
-    }
 
-    applyEventListeners();
-    window.addEventListener("resize", applyEventListeners);
+        card.addEventListener("click", function(event) {
+            event.preventDefault(); // Evita comportamiento por defecto
+
+            const link = this.getAttribute("href");
+            if (!link || link === "#") return; // Previene errores si href está vacío
+
+            if (window.innerWidth <= 768) { // 📱 MÓVILES: Redirigir de inmediato
+                console.log("📌 Redirigiendo en móvil a:", link);
+                window.location.href = link;
+            } else { // 💻 PC: Expandir primero, luego redirigir al hacer click
+                document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+                card.classList.add("active");
+
+                // 🕐 Redirigir después de 0.5s (solo en PC)
+                setTimeout(() => {
+                    console.log("📌 Redirigiendo en PC a:", link);
+                    window.location.href = link;
+                }, 500);
+            }
+        });
+
+        // 📱 Solución para el problema de scroll en móviles
+        card.addEventListener("touchstart", function(event) {
+            event.preventDefault(); // Evita problemas de scroll en móviles
+            console.log("📌 Touch detectado en móvil:", this.getAttribute("href"));
+            this.click(); // Simula el click normal
+        }, { passive: false });
+    });
 });
