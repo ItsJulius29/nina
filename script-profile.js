@@ -66,43 +66,55 @@ function openModal(item) {
         modalImage.src = item.dataset.src; // Asignar src a la imagen
         modalImage.classList.remove("hidden");
         modalVideo.classList.add("hidden"); // Ocultar el video
-    } else {
+    }  else if (item.dataset.type === "video")  {
         // Si es un video
-        modalVideo.src = item.dataset.src;
+        modalVideo.src = item.dataset.src; // Asignar el src al video
         modalVideo.classList.remove("hidden");
         modalImage.classList.add("hidden"); // Ocultar la imagen
+        modalVideo.play(); // Reproducir el video automáticamente cuando se abre
     }
 }
 
+// Mostrar el modal al hacer clic en cualquier item de la galería
 document.addEventListener("DOMContentLoaded", () => {
-    // Asegurémonos de que la galería esté bien seleccionada
-    const gallery = document.querySelector(".gallery-grid");
-    
-    if (!gallery) {
-        console.log("Galería no encontrada");
-        return;
-    }
+    // Seleccionamos la galería de fotos y la de reels
+    const photoGallery = document.getElementById("photos");
+    const reelGallery = document.getElementById("reels");
 
-    gallery.addEventListener("click", (event) => {
+    // Al hacer clic en cualquier item de la galería de fotos o reels, abrir el modal
+    photoGallery.addEventListener("click", (event) => {
         const item = event.target.closest(".gallery-item");
-        
-        // Si el clic no es en un item, salir
         if (!item) return;
+        openModal(item);
+    });
 
-        // Abrir el modal con el item seleccionado
+    reelGallery.addEventListener("click", (event) => {
+        const item = event.target.closest(".gallery-item");
+        if (!item) return;
         openModal(item);
     });
 
     // Cerrar el modal al hacer clic en la "X"
     document.querySelector(".close").addEventListener("click", () => {
-        document.getElementById("image-modal").classList.add("hidden");
+        const modal = document.getElementById("image-modal");
+        modal.classList.add("hidden");
+
+        // Pausar el video cuando se cierre el modal
+        const modalVideo = document.getElementById("modal-video");
+        modalVideo.pause(); // Pausar el video
+        modalVideo.currentTime = 0; // Reiniciar el video
     });
 
     // Cerrar el modal al hacer clic fuera del contenido
     document.getElementById("image-modal").addEventListener("click", (event) => {
         const modal = document.getElementById("image-modal");
         if (event.target === modal) {
-            modal.classList.add("hidden"); // Cerrar el modal si se hace clic fuera
+            modal.classList.add("hidden");
+
+            // Pausar el video cuando se cierre el modal
+            const modalVideo = document.getElementById("modal-video");
+            modalVideo.pause(); // Pausar el video
+            modalVideo.currentTime = 0; // Reiniciar el video
         }
     });
 });

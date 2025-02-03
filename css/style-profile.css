@@ -125,10 +125,15 @@ body {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item img,
+.gallery-item img{
+    width: 250px;
+    height: 250px;
+    display: block;
+    border-radius: 20px;
+}
 .gallery-item video {
     width: 350px;
-    height: 350px;
+    height: 450px;
     display: block;
     border-radius: 20px;
 }
@@ -175,7 +180,12 @@ body {
     text-align: center;
 }
 
-#modal-image,
+#modal-image{
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+}
+
 #modal-video {
     width: 100%;
     height: auto;
