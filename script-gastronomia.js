@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // ✅ Expanding Cards - Diferente comportamiento en PC y móviles
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
-    let lastClickedCard = null; // Guarda el último card tocado en móvil
+    let lastClickedCard = null; // Guarda la última tarjeta tocada
+    let clickTimer = null; // Temporizador para el segundo clic
 
     // Función de redirección
     function redirectToSection(card) {
@@ -59,13 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
 
             if (lastClickedCard === card) {
-                redirectToSection(card); // 🔗 Redirige en el segundo clic
+                // Si es el mismo card tocado nuevamente, redirigir
+                redirectToSection(card);
             } else {
-                lastClickedCard = card; // Guarda la referencia del primer clic
+                // Expandir la imagen en el primer clic
+                lastClickedCard = card;
                 document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-                card.classList.add("active"); // Expande la imagen en el primer clic
-            }
+                card.classList.add("active");
 
+                // Si en 1.5 segundos no hay otro clic, resetear
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => {
+                    lastClickedCard = null;
+                }, 1500);
+            }
         } else { // 💻 En PC
             event.preventDefault(); // Evita la redirección automática
             redirectToSection(card); // Redirige inmediatamente en PC
@@ -76,5 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cards.forEach(card => {
         card.addEventListener("mouseover", handleHover); // Expansión al pasar el mouse en PC
         card.addEventListener("click", handleClick);
+        card.addEventListener("touchend", handleClick, { passive: true }); // Soporte para móviles
     });
 });
