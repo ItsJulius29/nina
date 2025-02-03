@@ -27,50 +27,58 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ✅ Expanding Cards - Diferente comportamiento en PC y móviles
+// ✅ Diferente comportamiento para PC y Móvil
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
 
-    function handleClick(event) {
+    function handleMobileClick(event) {
+        event.preventDefault(); // Previene que la página haga scroll por error
+        const link = event.currentTarget.getAttribute("href");
+        if (link && link !== "#") {
+            console.log("📌 Redirigiendo en móvil a:", link);
+            window.location.href = link;
+        }
+    }
+
+    function handleDesktopClick(event) {
+        event.preventDefault(); // Evita la navegación inmediata en PC
         const card = event.currentTarget;
         const link = card.getAttribute("href");
 
-        if (!link || link === "#") return; // Previene errores si el href está vacío
+        if (!link || link === "#") return;
 
-        if (window.innerWidth <= 768) { 
-            // 📱 MÓVILES: Redirige directo sin expandir
-            console.log("📌 Redirigiendo a:", link);
+        document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+
+        // Redirige después de un pequeño delay (500ms)
+        setTimeout(() => {
+            console.log("📌 Redirigiendo en PC a:", link);
             window.location.href = link;
-        } else { 
-            // 💻 PC: Expande y luego redirige
-            event.preventDefault();
-            document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-            card.classList.add("active");
-
-            setTimeout(() => {
-                window.location.href = link;
-            }, 500); // Pequeño delay para que se note la expansión
-        }
+        }, 500);
     }
 
-    // 🚀 Aplica eventos a todas las tarjetas
-    cards.forEach(card => {
-        if (window.innerWidth > 768) {
-            card.addEventListener("mouseover", () => {
-                document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-                card.classList.add("active");
-            });
-        }
+    function applyEventListeners() {
+        const isMobile = window.innerWidth <= 768;
 
-        // 📌 Evita que se expanda en móviles
-        card.addEventListener("click", handleClick);
-        card.addEventListener("touchstart", handleClick, { passive: true });
-    });
+        cards.forEach(card => {
+            card.removeEventListener("click", handleMobileClick);
+            card.removeEventListener("click", handleDesktopClick);
 
-    // ✅ Asegura que en móviles NO se expandan las imágenes, solo redirijan
-    if (window.innerWidth <= 768) {
-        document.querySelectorAll(".card").forEach(card => {
-            card.classList.remove("active");
+            if (isMobile) {
+                card.addEventListener("click", handleMobileClick);
+            } else {
+                card.addEventListener("mouseover", () => {
+                    document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+                    card.classList.add("active");
+                });
+                card.addEventListener("click", handleDesktopClick);
+            }
         });
     }
+
+    // Aplica los eventos iniciales
+    applyEventListeners();
+
+    // Vuelve a aplicar eventos si cambia el tamaño de pantalla
+    window.addEventListener("resize", applyEventListeners);
 });
