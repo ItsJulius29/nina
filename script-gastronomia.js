@@ -42,8 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => {
         card.addEventListener("click", () => {
-            cards.forEach(c => c.classList.remove("active")); // Quita la clase de otros
-            card.classList.add("active"); // Activa la tarjeta tocada
+            if (window.innerWidth <= 768) { // Si es un móvil
+                window.location.href = card.getAttribute("href");
+            } else {
+                // Expande la tarjeta en pantallas grandes
+                cards.forEach(c => c.classList.remove("active"));
+                card.classList.add("active");
+            }
         });
     });
 });
+

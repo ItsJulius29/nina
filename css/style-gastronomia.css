@@ -160,6 +160,13 @@
     flex-wrap: wrap; /* Permite que los elementos se acomoden correctamente */
 }
 
+.expanding-cards .card {
+    pointer-events: auto; /* Asegura que los clics funcionen */
+    z-index: 1; /* Evita que otros elementos bloqueen el clic */
+    position: relative;
+}
+
+
 .card {
     flex: 1;
     height: 300px;
