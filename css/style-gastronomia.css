@@ -166,6 +166,10 @@
     position: relative;
 }
 
+.expanding-cards .card h3 {
+    pointer-events: none; /* Evita que el texto bloquee el clic */
+}
+
 
 .card {
     flex: 1;
