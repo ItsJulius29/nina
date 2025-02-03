@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style-home.css">
     <link rel="stylesheet" href="css/style-profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -20,7 +20,8 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <div class="d-flex align-items-center">
-                    <img src="img/user.jpg" alt="User" class="user-image me-2" style="border-radius: 50%; width: 40px; height: 40px;">
+                    <img src="img/user.jpg" alt="User" class="user-image me-2"
+                        style="border-radius: 50%; width: 40px; height: 40px;">
                     <p>@<span id="navbar-username"></span></p>
                 </div>
             </a>
@@ -44,12 +45,21 @@
     </nav>
 
     <!-- Encabezado con imagen de fondo -->
-    <div class="profile-header text-center" style="background-image: url('img/nina/nina1.jpg'); background-size: cover; height: 400px;">
-        <img src="img/user.jpg" alt="Foto de Perfil" class="profile-picture rounded-circle" style="border: 4px solid white; width: 150px; height: 150px; margin-top: -75px;">
+    <div class="profile-header text-center"
+        style="background-image: url('img/nina/nina1.jpg'); background-size: cover; height: 400px;">
+        <img src="img/user.jpg" alt="Foto de Perfil" class="profile-picture rounded-circle"
+            style="border: 4px solid white; width: 150px; height: 150px; margin-top: -75px;">
+            
     </div>
 
     <!-- Contenedor del perfil -->
     <div class="profile-info text-center">
+        <br>
+        <div class="stats mt-3">
+            <span class="mx-3">15 publicaciones</span>
+            <span class="mx-3">1 seguidor nino</span>
+            <span class="mx-3">1 seguidos nino</span>
+        </div>
         <h2 id="perfil-username">@nina</h2>
         <p>Aquí va una breve biografía o mensaje personalizado.</p>
 
@@ -57,14 +67,30 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><strong>Nombre: </strong> <span id="nombre-usuario"></span></li><br>
                 <li class="list-inline-item"><strong>Correo: </strong><span id="correo-usuario"></span></li><br>
-                <li class="list-inline-item"><strong>Fecha de Registro: </strong> 01/01/2024</li>
+                <li class="list-inline-item"><strong>Fecha de Registro: </strong> 20-10-2023 </li><br>
+                <li class="list-inline-item"><strong>Color Fav: </strong><span>Morado-Lila</span></li><br>
+                <li class="list-inline-item"><strong>CDeporte Fav:  </strong><span>Voley</span></li><br>
+                <li class="list-inline-item"><strong>Animes Fav: </strong><span><ol>
+                    <li>Shingeki No Kyojin</li>
+                    <li>Kimetsu No Yaiba</li>
+                    <li>Haikyuu</li>
+                    <li>Banana Fish</li>
+                </ol></span></li><br>
+                <li class="list-inline-item"><strong>Kdrama Fav:</strong><span>Boys Over Flowers</span></li><br>
+                <li class="list-inline-item"><strong>Comida Fav: </strong><span>
+                    <ol>
+                        <li>Alitas con papas fritas de pollería y tártara</li>
+                        <li>Picante de carne con huevo frito a la inglesa</li>
+                        <li>Pechuga con salsa de champiñon blanca</li>
+                    </ol>
+                </span></li><br>
+                <li class="list-inline-item"><strong>Postre Fav: </strong><span>Mil hojas con crema pastelera y fresas</span></li><br>
+                <li class="list-inline-item"><strong>Estacion Fav: </strong><span>Invierno</span></li><br>
+                <li class="list-inline-item"><strong>Trabajo Soñado: </strong><span>En una afetería</span></li><br>
+                <li class="list-inline-item"><strong>Artista Fav:  </strong> <span>Kai</span></li><br>
+                <li class="list-inline-item"><strong>Dibujo Fav:</strong><span> Conejito Loui</span></li><br>
+                
             </ul>
-        </div>
-
-        <div class="stats mt-3">
-            <span class="mx-3">15 publicaciones</span>
-            <span class="mx-3">1 seguidor nino</span>
-            <span class="mx-3">1 seguidos nino</span>
         </div>
     </div>
 
@@ -73,71 +99,111 @@
         <div class="tab active" data-tab="photos">Fotos</div>
         <div class="tab" data-tab="reels">Reels</div>
     </section>
-    
+
 
     <!-- Galería de fotos -->
     <section id="photos" class="gallery-grid row mt-3">
-        <div class="gallery-item col-3" data-type="image" data-src="img/img1.webp" data-desc="Esta es una descripción de la foto.">
-            <img src="img/img1.webp" alt="Foto 1" class="w-100">
-        </div>
-        
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
-        </div>
-        <div class="gallery-item col-3" data-type="image" data-src="img/img1.webp" data-desc="Esta es una descripción de la foto.">
-            <img src="img/img1.webp" alt="Foto 1" class="w-100">
-        </div>
-        
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
-        </div>
-        <div class="gallery-item col-3" data-type="image" data-src="img/img1.webp" data-desc="Esta es una descripción de la foto.">
-            <img src="img/img1.webp" alt="Foto 1" class="w-100">
-        </div>
-        
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
-        </div>
-        <div class="gallery-item col-3" data-type="image" data-src="img/img1.webp" data-desc="Esta es una descripción de la foto.">
-            <img src="img/img1.webp" alt="Foto 1" class="w-100">
-        </div>
-        
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
-        </div>
-        <div class="gallery-item col-3" data-type="image" data-src="img/img1.webp" data-desc="Esta es una descripción de la foto.">
-            <img src="img/img1.webp" alt="Foto 1" class="w-100">
-        </div>
-        
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
+
+        <div class="gallery-item col-3" data-type="image" data-desc="Esta es una descripción de muchas fotos"
+            data-images='["img/nina/museo5.jpg","img/nina/museo3.jpg","img/nina/museo4.jpg","img/nina/museo2.jpg"]'>
+            <img src="img/nina/museo5.jpg" alt="Foto 1" class="w-100">
         </div>
 
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
-        </div>
-        <div class="gallery-item col-3" data-type="image" data-src="img/img1.webp" data-desc="Esta es una descripción de la foto.">
-            <img src="img/img1.webp" alt="Foto 1" class="w-100">
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/moni.jpg" data-desc="Esta es una descripción para 1 foto.">
+            <img src="img/nina/moni.jpg" alt="Foto 1" class="w-100">
         </div>
 
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/365dias.jpg"
+            data-desc="Otra descripción interesante.">
+            <img src="img/nina/365dias.jpg" alt="Foto 2" class="w-100">
         </div>
 
-        <div class="gallery-item col-3" data-type="image" data-src="img/img2.webp" data-desc="Otra descripción interesante.">
-            <img src="img/img2.webp" alt="Foto 2" class="w-100">
+        <div class="gallery-item col-3" data-type="image" data-desc="Esta es una descripción de la foto."
+            data-images='["img/nina/fanfest1.jpg","img/nina/fanfest2.jpg","img/nina/fanfest3.jpg","img/nina/fanfest4.jpg",
+            "img/nina/fanfest5.jpg","img/nina/fanfest6.jpg","img/nina/fanfest7.jpg","img/nina/fanfest8.jpg"]'>
+            <img src="img/nina/fanfest1.jpg" alt="Foto 1" class="w-100">
         </div>
-        <div class="gallery-item col-3" data-type="image" data-src="img/img1.webp" data-desc="Esta es una descripción de la foto.">
-            <img src="img/img1.webp" alt="Foto 1" class="w-100">
+
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/nina3.jpg"
+            data-desc="Otra descripción interesante.">
+            <img src="img/nina/nina3.jpg" alt="Foto 2" class="w-100">
+        </div>
+
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/nina2.jpg"
+            data-desc="Esta es una descripción de la foto.">
+            <img src="img/nina/nina2.jpg" alt="Foto 1" class="w-100">
+        </div>
+
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/flormorada.jpg"
+            data-desc="Otra descripción interesante.">
+            <img src="img/nina/flormorada.jpg" alt="Foto 2" class="w-100">
+        </div>
+
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/floramarilla.jpg"
+            data-desc="Esta es una descripción de la foto.">
+            <img src="img/nina/floramarilla.jpg" alt="Foto 1" class="w-100">
+        </div>
+
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/conamu.jpg"
+            data-desc="Otra descripción interesante.">
+            <img src="img/nina/conamu.jpg" alt="Foto 2" class="w-100">
+        </div>
+
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/uni.jpg"
+            data-desc="Esta es una descripción de la foto.">
+            <img src="img/nina/uni.jpg" alt="Foto 1" class="w-100">
+        </div>
+
+        <div class="gallery-item col-3" data-type="image" data-src="img/nina/lluvia.jpg"
+            data-desc="Otra descripción interesante.">
+            <img src="img/nina/lluvia.jpg" alt="Foto 2" class="w-100">
         </div>
 
     </section>
 
     <!-- Galería de reels (solo se muestra al activar la pestaña) -->
     <section id="reels" class="gallery-grid row hidden mt-3">
-        <div class="gallery-item col-4" data-type="video" data-src="video/vid1.mp4" data-desc="Este es un reel increíble.">
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid1.mp4"
+            data-desc="Este es un reel increíble.">
             <video src="video/vid1.mp4" muted class="w-100"></video>
         </div>
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid2.mp4"
+            data-desc="Este es un reel increíble.">
+            <video src="video/vid2.mp4" muted class="w-100"></video>
+        </div>
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid3.mp4"
+            data-desc="Este es un reel increíble.">
+            <video src="video/vid3.mp4" muted class="w-100"></video>
+        </div>
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid4.mp4"
+            data-desc="Este es un reel increíble.">
+            <video src="video/vid4.mp4" muted class="w-100"></video>
+        </div>
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid5.mp4"
+            data-desc="Este es un reel increíble.">
+            <video src="video/vid5.mp4" muted class="w-100"></video>
+        </div>
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid6.mp4"
+            data-desc="Este es un reel increíble.">
+            <video src="video/vid6.mp4" muted class="w-100"></video>
+        </div>
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid7.mp4"
+            data-desc="Este es un reel increíble.">
+            <video src="video/vid7.mp4" muted class="w-100"></video>
+        </div>
+
+        <div class="gallery-item col-4" data-type="video" data-src="video/vid8.mp4"
+            data-desc="Este es un reel increíble.">
+            <video src="video/vid8.mp4" muted class="w-100"></video>
+        </div>
+
     </section>
 
     <!-- Modal para mostrar imágenes o videos ampliados -->
@@ -145,12 +211,17 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-image-container">
+                <!-- Flechas de navegación -->
+                <button class="prev-btn" id="prev-btn" style="display:none;">&#10094;</button>
+
                 <img id="modal-image" src="" alt="Imagen ampliada" class="w-100">
-                <video id="modal-video"  src="" alt="Video ampliado" controls class="w-100"></video>
+                <video id="modal-video" src="" alt="Video ampliado" controls class="w-100"></video>
+
+                <button class="next-btn" id="next-btn" style="display:none;">&#10095;</button>
             </div>
             <div class="modal-description">
                 <!-- Descripción del post -->
-                <p id="modal-text"></p>
+                <p style="color: black;" id="modal-text"></p>
                 <!-- Simulación de interacciones -->
                 <div class="modal-interactions">
                     <p><strong>17 likes</strong></p>

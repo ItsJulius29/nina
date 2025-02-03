@@ -19,8 +19,8 @@ body {
 
 /* Imagen de perfil superpuesta */
 .profile-picture {
-    width: 150px;
-    height: 150px;
+    width: 200px !important;
+    height: 200px !important;
     border-radius: 50%;
     border: 4px solid white;
     position: absolute;
@@ -38,7 +38,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin: 40px auto 0 auto;
-    width: 50%;
+    width: 70%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -57,10 +57,10 @@ body {
 /* Tarjeta de información */
 .profile-details {
     background: white;
-    padding: 20px;
+    padding: 60px;
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    max-width: 700px;
     margin: 20px auto;
     text-align: left;
 }
@@ -68,6 +68,7 @@ body {
 .profile-details ul {
     list-style: none;
     padding: 0;
+    justify-content: center;
 }
 
 .profile-details ul li {
@@ -231,10 +232,18 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .profile-info {
-        width: 90%;
+     .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
+    /* Ajustar tamaño de imagen en el modal */
+    .modal-image-container img, 
+    .modal-image-container video {
+        width: 90%; /* Para que el contenido no sobresalga del modal */
+        margin: 0 auto;
+    }
+
+    /* Ajustar el tamaño de la imagen de perfil */
     .profile-picture {
         width: 120px;
         height: 120px;
@@ -244,8 +253,81 @@ body {
     .profile-header {
         height: 250px;
     }
+
+    .profile-info {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 95%; /* Aseguramos que el modal ocupe más espacio en pantallas pequeñas */
+    }
+
+    .modal-description {
+        font-size: 14px; /* Reducir el tamaño de la fuente para pantallas pequeñas */
+    }
+
+    .close {
+        font-size: 35px;
+        top: 15px;
+        right: 20px;
+    }
+
+    .modal-content .prev, 
+    .modal-content .next {
+        font-size: 40px; /* Aumentar tamaño de las flechas */
+        padding: 15px;
+    }
+
+    .gallery-item img{
+        height: 100px;
+    }
+
 }
 
+/* Flechas de navegación */
+.prev-btn, .next-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Escondemos las flechas si no son necesarias */
 .hidden {
     display: none;
+}
+
+/* Estilo general para las estadísticas */
+.stats {
+    font-size: 18px;  /* Tamaño predeterminado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaciado entre los elementos */
+}
+
+.stats span {
+    font-weight: bold;
+    font-family: serif;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .stats {
+        font-size: 14px; /* Reducir el tamaño de la fuente para dispositivos móviles */
+    }
 }

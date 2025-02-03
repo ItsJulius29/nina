@@ -29,6 +29,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// Función para abrir el modal
+function openModal(item) {
+    const modal = document.getElementById("image-modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalVideo = document.getElementById("modal-video");
+    const modalDesc = document.getElementById("modal-text");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    modal.classList.remove("hidden"); // Mostrar el modal
+    modalDesc.textContent = item.dataset.desc; // Descripción de la imagen
+
+    // Si es una imagen
+    if (item.dataset.type === "image") {
+        const images = JSON.parse(item.dataset.images || "[]");
+
+        if (images.length > 1) {
+            modalImage.src = images[0]; // Asignar la primera imagen
+            modalImage.classList.remove("hidden");
+            modalVideo.classList.add("hidden");
+
+            prevBtn.style.display = "block";
+            nextBtn.style.display = "block";
+
+            let currentIndex = 0;
+
+            // Actualizar imagen al hacer clic en las flechas
+            prevBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+                modalImage.src = images[currentIndex];
+            });
+
+            nextBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                modalImage.src = images[currentIndex];
+            });
+        } else {
+            modalImage.src = item.dataset.src; // Asignar src a la imagen
+            modalImage.classList.remove("hidden");
+            modalVideo.classList.add("hidden");
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+        }
+    } else if (item.dataset.type === "video") {
+        // Si es un video
+        modalVideo.src = item.dataset.src;
+        modalVideo.classList.remove("hidden");
+        modalImage.classList.add("hidden");
+        modalVideo.play(); // Reproducir el video automáticamente cuando se abre
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+    }
+}
+
+
 // ✅ Manejo de pestañas (Fotos y Reels) - Delegación de eventos
 document.addEventListener("DOMContentLoaded", () => {
     const tabContainer = document.querySelector(".tab-container");
@@ -50,30 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById(tab.dataset.tab).classList.remove("hidden");
     });
 });
-
-// Función para abrir el modal
-function openModal(item) {
-    const modal = document.getElementById("image-modal");
-    const modalImage = document.getElementById("modal-image");
-    const modalVideo = document.getElementById("modal-video");
-    const modalDesc = document.getElementById("modal-text");
-
-    modal.classList.remove("hidden"); // Mostrar el modal
-    modalDesc.textContent = item.dataset.desc; // Descripción de la imagen
-
-    // Si es una imagen
-    if (item.dataset.type === "image") {
-        modalImage.src = item.dataset.src; // Asignar src a la imagen
-        modalImage.classList.remove("hidden");
-        modalVideo.classList.add("hidden"); // Ocultar el video
-    }  else if (item.dataset.type === "video")  {
-        // Si es un video
-        modalVideo.src = item.dataset.src; // Asignar el src al video
-        modalVideo.classList.remove("hidden");
-        modalImage.classList.add("hidden"); // Ocultar la imagen
-        modalVideo.play(); // Reproducir el video automáticamente cuando se abre
-    }
-}
 
 // Mostrar el modal al hacer clic en cualquier item de la galería
 document.addEventListener("DOMContentLoaded", () => {
@@ -117,4 +148,37 @@ document.addEventListener("DOMContentLoaded", () => {
             modalVideo.currentTime = 0; // Reiniciar el video
         }
     });
+});
+
+// Lógica para las flechas de navegación
+document.addEventListener("DOMContentLoaded", () => {
+    let currentIndex = 0;
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    prevBtn.addEventListener("click", () => {
+        currentIndex--;
+        if (currentIndex < 0) currentIndex = images.length - 1;
+        updateModalImage();
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex++;
+        if (currentIndex >= images.length) currentIndex = 0;
+        updateModalImage();
+    });
+
+    function updateModalImage() {
+        const modalImage = document.getElementById("modal-image");
+        const modalVideo = document.getElementById("modal-video");
+        if (images[currentIndex].type === "image") {
+            modalImage.src = images[currentIndex].src;
+            modalVideo.classList.add("hidden");
+            modalImage.classList.remove("hidden");
+        } else {
+            modalVideo.src = images[currentIndex].src;
+            modalImage.classList.add("hidden");
+            modalVideo.classList.remove("hidden");
+        }
+    }
 });
