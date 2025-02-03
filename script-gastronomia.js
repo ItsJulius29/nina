@@ -27,13 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ✅ Diferente comportamiento para PC y Móvil
+// ✅ Expanding Cards: Diferente comportamiento para PC y Móvil
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
 
     function handleMobileClick(event) {
-        event.preventDefault(); // Previene que la página haga scroll por error
+        event.preventDefault(); // Previene saltos raros
         const link = event.currentTarget.getAttribute("href");
+
         if (link && link !== "#") {
             console.log("📌 Redirigiendo en móvil a:", link);
             window.location.href = link;
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function handleDesktopClick(event) {
-        event.preventDefault(); // Evita la navegación inmediata en PC
+        event.preventDefault();
         const card = event.currentTarget;
         const link = card.getAttribute("href");
 
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
         card.classList.add("active");
 
-        // Redirige después de un pequeño delay (500ms)
         setTimeout(() => {
             console.log("📌 Redirigiendo en PC a:", link);
             window.location.href = link;
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function applyEventListeners() {
-        const isMobile = window.innerWidth <= 768;
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
         cards.forEach(card => {
             card.removeEventListener("click", handleMobileClick);
@@ -76,9 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Aplica los eventos iniciales
     applyEventListeners();
-
-    // Vuelve a aplicar eventos si cambia el tamaño de pantalla
     window.addEventListener("resize", applyEventListeners);
 });
