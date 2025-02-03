@@ -41,25 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
 
     function handleClick(event) {
-        event.preventDefault(); // Evita el comportamiento predeterminado de <a>
-
         const card = event.currentTarget;
         const link = card.getAttribute("href");
 
-        if (window.innerWidth <= 768) { // Móviles
-            console.log("Redirigiendo a:", link); // Verifica si el evento se dispara
+        if (!link || link === "#") return; // Previene errores si el href está vacío
+
+        if (window.innerWidth <= 768) { // 📱 Dispositivos móviles
+            console.log("Redirigiendo a:", link);
             window.location.href = link;
-        } else { // PC - Expande la imagen
+        } else { // 💻 PC - Expande la imagen
+            event.preventDefault(); // Solo evita el comportamiento predeterminado en PC
             cards.forEach(c => c.classList.remove("active"));
             card.classList.add("active");
         }
     }
 
-    // Detectar eventos de click y touch
     cards.forEach(card => {
         card.addEventListener("click", handleClick);
-        card.addEventListener("touchend", handleClick); // Soporte para móviles
+        card.addEventListener("touchstart", handleClick, { passive: true }); // 📌 Soporte para móviles
     });
 });
+
 
 
