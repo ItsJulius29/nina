@@ -31,14 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
 
     cards.forEach(card => {
-        card.addEventListener("click", function(event) {
-            event.preventDefault(); // Evita comportamiento predeterminado en enlaces
-            
-            const link = this.getAttribute("href");
-            if (!link || link === "#") return; // Evita errores si el href está vacío
+        const link = card.getAttribute("href");
+        if (!link || link === "#") return;
 
-            if (window.innerWidth <= 768) { 
-                // 📱 En móviles: Redirigir directamente
+        if (window.innerWidth <= 768) {
+            // 📱 En móviles: Deshabilitar expansión y solo redireccionar
+            card.classList.remove("active"); // Asegura que no tenga la clase activa
+            card.addEventListener("click", () => {
                 console.log("📌 Redirigiendo en móvil a:", link);
                 if (link.startsWith("#")) {
                     const targetElement = document.querySelector(link);
@@ -48,13 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     window.location.href = link;
                 }
-            } else { 
-                // 💻 En PC: Expandir y redirigir después de 0.5s
+            });
+        } else {
+            // 💻 En PC: Expande primero, luego redirige
+            card.addEventListener("mouseover", function() {
                 document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-                card.classList.add("active");
+                this.classList.add("active");
+            });
 
+            card.addEventListener("click", function(event) {
+                event.preventDefault(); // Evita el comportamiento predeterminado de los enlaces
+                console.log("📌 Redirigiendo en PC a:", link);
                 setTimeout(() => {
-                    console.log("📌 Redirigiendo en PC a:", link);
                     if (link.startsWith("#")) {
                         const targetElement = document.querySelector(link);
                         if (targetElement) {
@@ -64,14 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         window.location.href = link;
                     }
                 }, 500);
-            }
-        });
-
-        // ✅ Eliminamos preventDefault en touchstart para no bloquear el desplazamiento
-        card.addEventListener("touchstart", function() {
-            console.log("📌 Touch detectado en móvil:", this.getAttribute("href"));
-        }, { passive: true });
+            });
+        }
     });
 });
-
-

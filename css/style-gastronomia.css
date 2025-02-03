@@ -101,24 +101,19 @@
     }
 
     .expanding-cards {
-        display: flex;
-        flex-direction: column; /* Acomoda los elementos en FILAS */
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 15px;
-        padding: 15px;
-        width: 100%;
     }
 
     .card {
-        width: 90%; /* Ocupa casi todo el ancho del contenedor */
-        height: auto; /* Se ajusta al contenido */
-        aspect-ratio: 16/9; /* Mantiene una proporción adecuada */
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
         flex: none;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
+    }
+
+    .card:hover{
+        flex: none !important; /* Deshabilita expansión */
     }
 
     .card h3 {
