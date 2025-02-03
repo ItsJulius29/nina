@@ -31,40 +31,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
 
     cards.forEach(card => {
-        // 🖱 Para PC: Expandir al pasar el mouse y redirigir al hacer click
-        card.addEventListener("mouseover", () => {
-            if (window.innerWidth > 768) { // Solo en PC
-                document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-                card.classList.add("active");
-            }
-        });
-
         card.addEventListener("click", function(event) {
             event.preventDefault(); // Evita comportamiento por defecto
 
             const link = this.getAttribute("href");
             if (!link || link === "#") return; // Previene errores si href está vacío
 
-            if (window.innerWidth <= 768) { // 📱 MÓVILES: Redirigir de inmediato
+            if (window.innerWidth <= 768) { // 📱 MÓVILES: Redirigir manualmente a la sección
                 console.log("📌 Redirigiendo en móvil a:", link);
-                window.location.href = link;
-            } else { // 💻 PC: Expandir primero, luego redirigir al hacer click
+
+                if (link.startsWith("#")) {
+                    const targetElement = document.querySelector(link);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                } else {
+                    window.location.href = link; // Si es otra página, redirigir normalmente
+                }
+            } else { // 💻 PC: Expandir primero, luego redirigir
                 document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
                 card.classList.add("active");
 
-                // 🕐 Redirigir después de 0.5s (solo en PC)
+                // 🕐 Redirigir después de 0.5s en PC
                 setTimeout(() => {
                     console.log("📌 Redirigiendo en PC a:", link);
-                    window.location.href = link;
+                    if (link.startsWith("#")) {
+                        const targetElement = document.querySelector(link);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                    } else {
+                        window.location.href = link;
+                    }
                 }, 500);
             }
         });
 
         // 📱 Solución para el problema de scroll en móviles
         card.addEventListener("touchstart", function(event) {
-            event.preventDefault(); // Evita problemas de scroll en móviles
+            event.preventDefault();
             console.log("📌 Touch detectado en móvil:", this.getAttribute("href"));
-            this.click(); // Simula el click normal
+            this.click();
         }, { passive: false });
     });
 });
+
