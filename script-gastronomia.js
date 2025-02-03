@@ -27,18 +27,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Expanding Cards - Mejora de rendimiento
-document.querySelectorAll('.expanding-cards').forEach(expandingCards => {
-    expandingCards.addEventListener("mouseover", (event) => {
-        if (event.target.classList.contains("card")) {
-            document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
-            event.target.classList.add("active");
-        }
-    });
-});
-
+// ✅ Expanding Cards - Diferente comportamiento en PC y móviles
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".expanding-cards .card");
+    let lastClickedCard = null; // Guarda el último card tocado en móvil
+
+    // Función de redirección
+    function redirectToSection(card) {
+        const link = card.getAttribute("href");
+        if (link && link !== "#") {
+            console.log("📌 Redirigiendo a:", link);
+            window.location.href = link; // Redirige a la sección
+        }
+    }
+
+    // Manejo de eventos en PC
+    function handleHover(event) {
+        if (window.innerWidth > 768) { // 💻 En PC
+            document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+            event.currentTarget.classList.add("active");
+        }
+    }
 
     function handleClick(event) {
         const card = event.currentTarget;
@@ -46,21 +55,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!link || link === "#") return; // Previene errores si el href está vacío
 
-        if (window.innerWidth <= 768) { // 📱 Dispositivos móviles
-            console.log("Redirigiendo a:", link);
-            window.location.href = link;
-        } else { // 💻 PC - Expande la imagen
-            event.preventDefault(); // Solo evita el comportamiento predeterminado en PC
-            cards.forEach(c => c.classList.remove("active"));
-            card.classList.add("active");
+        if (window.innerWidth <= 768) { // 📱 En móviles
+            event.preventDefault();
+
+            if (lastClickedCard === card) {
+                redirectToSection(card); // 🔗 Redirige en el segundo clic
+            } else {
+                lastClickedCard = card; // Guarda la referencia del primer clic
+                document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+                card.classList.add("active"); // Expande la imagen en el primer clic
+            }
+
+        } else { // 💻 En PC
+            event.preventDefault(); // Evita la redirección automática
+            redirectToSection(card); // Redirige inmediatamente en PC
         }
     }
 
+    // Aplica los eventos a todas las tarjetas
     cards.forEach(card => {
+        card.addEventListener("mouseover", handleHover); // Expansión al pasar el mouse en PC
         card.addEventListener("click", handleClick);
-        card.addEventListener("touchstart", handleClick, { passive: true }); // 📌 Soporte para móviles
     });
 });
-
-
-
