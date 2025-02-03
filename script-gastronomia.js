@@ -32,27 +32,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => {
         card.addEventListener("click", function(event) {
-            event.preventDefault(); // Evita comportamiento por defecto
-
+            event.preventDefault(); // Evita comportamiento predeterminado en enlaces
+            
             const link = this.getAttribute("href");
-            if (!link || link === "#") return; // Previene errores si href está vacío
+            if (!link || link === "#") return; // Evita errores si el href está vacío
 
-            if (window.innerWidth <= 768) { // 📱 MÓVILES: Redirigir manualmente a la sección
+            if (window.innerWidth <= 768) { 
+                // 📱 En móviles: Redirigir directamente
                 console.log("📌 Redirigiendo en móvil a:", link);
-
                 if (link.startsWith("#")) {
                     const targetElement = document.querySelector(link);
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
                     }
                 } else {
-                    window.location.href = link; // Si es otra página, redirigir normalmente
+                    window.location.href = link;
                 }
-            } else { // 💻 PC: Expandir primero, luego redirigir
+            } else { 
+                // 💻 En PC: Expandir y redirigir después de 0.5s
                 document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
                 card.classList.add("active");
 
-                // 🕐 Redirigir después de 0.5s en PC
                 setTimeout(() => {
                     console.log("📌 Redirigiendo en PC a:", link);
                     if (link.startsWith("#")) {
@@ -67,12 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // 📱 Solución para el problema de scroll en móviles
-        card.addEventListener("touchstart", function(event) {
-            event.preventDefault();
+        // ✅ Eliminamos preventDefault en touchstart para no bloquear el desplazamiento
+        card.addEventListener("touchstart", function() {
             console.log("📌 Touch detectado en móvil:", this.getAttribute("href"));
-            this.click();
-        }, { passive: false });
+        }, { passive: true });
     });
 });
+
 
