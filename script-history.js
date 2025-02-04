@@ -65,7 +65,7 @@ nextBtn.addEventListener('click', () => {
         currentPage++;
         pages[currentPage].classList.add('active');
         
-        // Hacer scroll hacia el div actual
+        // Hacer scroll hacia el div actual y centrarlo
         pages[currentPage].scrollIntoView({ 
             behavior: 'smooth', 
             block: 'center' // Centra el elemento en la pantalla
@@ -80,7 +80,7 @@ prevBtn.addEventListener('click', () => {
         currentPage--;
         pages[currentPage].classList.add('active');
         
-        // Hacer scroll hacia el div actual
+        // Hacer scroll hacia el div actual y centrarlo
         pages[currentPage].scrollIntoView({ 
             behavior: 'smooth', 
             block: 'center' // Centra el elemento en la pantalla
