@@ -12,11 +12,185 @@
     margin: 0 auto; /* Centra el texto */
 }
 
+.container h4{
+    color: #afa0a0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0e4f1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.history-page {
+    opacity: 25%; /* Comienza invisible */
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(30px); /* Desplazamiento hacia abajo */
+    width: 100%;
+    display: flex; /* Activar Flexbox */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+}
+
+.history-page.active {
+    opacity: 1; /* Se vuelve visible cuando se le aplica la clase 'active' */
+    transform: translateY(0); /* Desplazamiento a la posición original */
+}
+
+.history-content {
+    display: flex; /* Usar flexbox dentro del contenido */
+    align-items: center; /* Centrar elementos verticalmente */
+    justify-content: space-between; /* Separar la imagen de los textos */
+    width: 100%;
+    max-width: 1200px; /* Puedes ajustar el tamaño máximo según lo desees */
+}
+
+.history-image {
+    display: flex;
+    justify-content: center; /* Centra la imagen */
+}
+
+.history-image img {
+    max-width: 400px; /* Limitar el tamaño de la imagen */
+    height: 250px;
+    width: 200px;
+    border-radius: 10px;
+    transition: opacity 1s ease; /* Suaviza la transición de opacidad */
+}
+
+.history-text {
+    padding: 20px;
+    text-align: left;
+    max-width: 500px; /* Limitar el tamaño del texto */
+}
+
+.history-text h4 {
+    font-size: 2rem;
+    color: #953de7;
+}
+
+.history-text p {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+button {
+    background-color: #953de7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #7a2dc1;
+}
+
+/* Estilo para los botones flotantes */
+#prev-button, #next-button {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior de la página */
+    z-index: 10; /* Asegura que los botones estén por encima de otros elementos */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    padding: 10px 20px; /* Espaciado dentro de los botones */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Botón "Anterior" a la izquierda */
+#prev-button {
+    left: 20px; /* Posición a la izquierda de la pantalla */
+}
+
+/* Botón "Siguiente" a la derecha */
+#next-button {
+    right: 20px; /* Posición a la derecha de la pantalla */
+}
+
+
+h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(255, 255, 255); /* Texto blanco para resaltar sobre el fondo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Sombra para mejorar visibilidad */
+    margin-bottom: 30px; /* Espaciado abajo */
+    padding: 10px;
+}
+
+.botones{
+    margin-top: 20%;
+}
+
+
 @media (max-width: 768px) {
+
+    .container{
+        max-width: 400px;
+        padding: 40px;
+    }
     .stroke-text {
-        font-size: 6vw; /* Ajusta el tamaño para pantallas más pequeñas */
+        font-size: 1.5rem; /* Ajusta el tamaño para pantallas más pequeñas */
         -webkit-text-stroke: 0.8px #953de7cc; /* Reduce un poco el grosor */
     }
+
+    .history-image img {
+        height: 250px; /* Mantiene la proporción */
+        width: 200px; /* Mantiene la proporción */
+        margin: 10px;
+    }
+
+    .history-text {
+        max-width: 70%; /* Reduce el tamaño del texto */
+        margin: 0 auto; /* Centra el texto */
+    }
+
+    .history-text h4 {
+        font-size: 1.5rem;
+    }
+
+    .history-text p {
+        font-size: 0.8rem;
+    }
+
+    .history-page {
+        flex-direction: column; /* Hace que la imagen esté encima del texto */
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    #prev-button, #next-button {
+        font-size: 1rem; /* Reducir el tamaño del botón en móviles */
+        padding: 8px 16px; /* Reducir el tamaño de los botones */
+        width: 100px; /* Ajustar el tamaño del botón */
+    }
+
+    #prev-button{
+        left: 0px;
+    }
+
+    #next-button{
+        right: 0px;
+    }
+
+    .text-center h3{
+        font-size: 2rem;
+    }
+    
 }
 
 @keyframes typing {

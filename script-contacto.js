@@ -97,7 +97,7 @@ var lugares = [
         coords: [-12.073460, -77.166048],
         title: "La punta ",
         description: "Respiro en la punta, conectando con el mar",
-        image: "img/nina/punta.jpg"
+        image: "img/nina/punta.JPG"
     },
     {
         coords: [-12.393834, -76.777289],

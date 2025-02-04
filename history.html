@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style-home.css">
     <link rel="stylesheet" href="css/style-history.css">
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,7 +23,6 @@
                     <p>@<span id="navbar-username"> </span></p>
                 </div>
             </a>
-
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,14 +56,353 @@
 
     <section id="message" class="text-center py-5 bg-white">
         <div class="container text-center text-history">
-
             <h1 class="stroke-text" id="days-counter"></h1>
-            <h3 class="mt-5" >Nuestra Historia Juntos</h3>
-            <p>
+            <br><br>
+            <h4>
                 Desde el primer momento que te vi, supe que eras única.
                 Gracias por ser mi compañera y por llenar mi vida de amor.
                 Este pequeño espacio está dedicado a recordarte cuánto te amo.
-            </p>
+            </h4>
+        </div>
+    </section>
+
+    <section style="display: flex;" class="text-center py-5 bg-light">
+
+        <div style="position: fixed; left: 10%;" class="botones">
+            <button id="prev-button">Anterior</button>
+        </div>
+
+        <div class="container">
+            <h3 class="text-center">Nuestra Historia Juntos</h3>
+            
+            <!-- Pagina/Historia -->
+            <div id="history-container">
+                
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history0.jpg" alt="Momento 0">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 0</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history1.jpg" alt="Momento 1">
+                        </div>
+                        <h4>El primer día que nos conocimos 1</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 2</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history2.jpg" alt="Momento 2">
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history3.jpg" alt="Momento 3">
+                        </div>
+                        <h4>El primer día que nos conocimos 3</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history4.jpg" alt="Momento 4">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 4</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history5.webp" alt="Momento 5">
+                        </div>
+                        <h4>El primer día que nos conocimos 5</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 6</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history6.webp" alt="Momento 6">
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history7.jpg" alt="Momento 7">
+                        </div>
+                        <h4>El primer día que nos conocimos 7</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history8.jpg" alt="Momento 8">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 8</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history9.jpg" alt="Momento 9">
+                        </div>
+                        <h4>El primer día que nos conocimos 9</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 10</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history10.jpg" alt="Momento 10">
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history11.jpg" alt="Momento 11">
+                        </div>
+                        <h4>El primer día que nos conocimos 11</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history12.jpg" alt="Momento 12">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 12</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+                
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history13.jpg" alt="Momento 13">
+                        </div>
+                        <h4>El primer día que nos conocimos 13</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 14</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history14.jpg" alt="Momento 14">
+                    </div>
+                </div>
+                
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history15.jpg" alt="Momento 15">
+                        </div>
+                        <h4>El primer día que nos conocimos 15</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history16.jpg" alt="Momento 16">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 16</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+                
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history17.webp" alt="Momento 17">
+                        </div>
+                        <h4>El primer día que nos conocimos 17</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 18</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history18.jpg" alt="Momento 18">
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history19.jpg" alt="Momento 19">
+                        </div>
+                        <h4>El primer día que nos conocimos 19</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history20.jpg" alt="Momento 20">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 20</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+               
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history21.jpg" alt="Momento 21">
+                        </div>
+                        <h4>El primer día que nos conocimos 21</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 22</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history22.jpg" alt="Momento 22">
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history23.webp" alt="Momento 23">
+                        </div>
+                        <h4>El primer día que nos conocimos 23</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history24.webp" alt="Momento 24">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 24</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+                
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history25.jpg" alt="Momento 25">
+                        </div>
+                        <h4>El primer día que nos conocimos 25</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 26</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history26.webp" alt="Momento 26">
+                    </div>
+                </div>
+                
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history27.jpg" alt="Momento 27">
+                        </div>
+                        <h4>El primer día que nos conocimos 27</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-image">
+                        <img src="img/history/history28.jpeg" alt="Momento 28">
+                    </div>
+                    <div class="history-text">
+                        <h4>El primer día que nos conocimos 28</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+                
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history29.jpg" alt="Momento 29">
+                        </div>
+                        <h4>El primer día que nos conocimos 29</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: right; justify-self: right;">
+                        <h4>El primer día que nos conocimos 30</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="img/history/history30.jpg" alt="Momento 30">
+                    </div>
+                </div>
+
+                <div class="history-page">
+                    <div class="history-text" style="text-align: center; justify-self: center;">
+                        <div class="history-image">
+                            <img src="img/history/history31.jpg" alt="Momento 31">
+                        </div>
+                        <h4>El primer día que nos conocimos 31</h4>
+                        <p>Fue un momento especial lleno de nervios, pero de mucha emoción.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="position: fixed; right: 10%; " class="botones">
+            <button id="next-button">Siguiente</button>
         </div>
     </section>
 

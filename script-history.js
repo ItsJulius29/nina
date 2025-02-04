@@ -49,3 +49,41 @@ document.addEventListener("DOMContentLoaded", () => {
         daysCounter.textContent = `❤️ Llevamos ${diffDays} días juntos ❤️`;
     }
 });
+
+let currentPage = 0; // Página inicial
+const pages = document.querySelectorAll('.history-page'); // Todas las páginas
+const nextBtn = document.getElementById('next-button');
+const prevBtn = document.getElementById('prev-button');
+
+// Mostrar la primera página
+pages[currentPage].classList.add('active');
+
+// Cambiar a la siguiente página
+nextBtn.addEventListener('click', () => {
+    if (currentPage < pages.length - 1) {
+        pages[currentPage].classList.remove('active');
+        currentPage++;
+        pages[currentPage].classList.add('active');
+        
+        // Hacer scroll hacia el div actual
+        pages[currentPage].scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' // Centra el elemento en la pantalla
+        });
+    }
+});
+
+// Cambiar a la página anterior
+prevBtn.addEventListener('click', () => {
+    if (currentPage > 0) {
+        pages[currentPage].classList.remove('active');
+        currentPage--;
+        pages[currentPage].classList.add('active');
+        
+        // Hacer scroll hacia el div actual
+        pages[currentPage].scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' // Centra el elemento en la pantalla
+        });
+    }
+});
