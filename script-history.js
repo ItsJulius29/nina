@@ -58,11 +58,13 @@ const prevBtn = document.getElementById('prev-button');
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función de desplazamiento suave para móviles y PCs
+// Función para hacer scroll usando window.scrollTo
 function scrollToPage(pageIndex) {
-    pages[pageIndex].scrollIntoView({
-        behavior: 'smooth',
-        block: 'center' // Centra el elemento en la pantalla
+    const page = pages[pageIndex];
+    const rect = page.getBoundingClientRect();
+    window.scrollTo({
+        top: rect.top + window.pageYOffset - (window.innerHeight / 2) + (rect.height / 2), // Ajusta la posición para centrar
+        behavior: 'smooth'
     });
 }
 
@@ -72,7 +74,7 @@ nextBtn.addEventListener('click', () => {
         pages[currentPage].classList.remove('active');
         currentPage++;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage); // Llamada a la función para hacer scroll al div actual
+        scrollToPage(currentPage); // Hacer scroll al div actual
     }
 });
 
@@ -82,7 +84,7 @@ prevBtn.addEventListener('click', () => {
         pages[currentPage].classList.remove('active');
         currentPage--;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage); // Llamada a la función para hacer scroll al div actual
+        scrollToPage(currentPage); // Hacer scroll al div actual
     }
 });
 
