@@ -58,18 +58,21 @@ const prevBtn = document.getElementById('prev-button');
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
+// Función de desplazamiento suave para móviles y PCs
+function scrollToPage(pageIndex) {
+    pages[pageIndex].scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' // Centra el elemento en la pantalla
+    });
+}
+
 // Cambiar a la siguiente página
 nextBtn.addEventListener('click', () => {
     if (currentPage < pages.length - 1) {
         pages[currentPage].classList.remove('active');
         currentPage++;
         pages[currentPage].classList.add('active');
-        
-        // Hacer scroll hacia el div actual y centrarlo
-        pages[currentPage].scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' // Centra el elemento en la pantalla
-        });
+        scrollToPage(currentPage); // Llamada a la función para hacer scroll al div actual
     }
 });
 
@@ -79,11 +82,20 @@ prevBtn.addEventListener('click', () => {
         pages[currentPage].classList.remove('active');
         currentPage--;
         pages[currentPage].classList.add('active');
-        
-        // Hacer scroll hacia el div actual y centrarlo
-        pages[currentPage].scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' // Centra el elemento en la pantalla
-        });
+        scrollToPage(currentPage); // Llamada a la función para hacer scroll al div actual
     }
 });
+
+// Detectar si es móvil
+const isMobile = window.innerWidth <= 768;
+
+// Si es móvil, redirigir al centro del div activo al hacer clic en los botones
+if (isMobile) {
+    nextBtn.addEventListener('click', () => {
+        scrollToPage(currentPage);
+    });
+
+    prevBtn.addEventListener('click', () => {
+        scrollToPage(currentPage);
+    });
+}
