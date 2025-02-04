@@ -102,6 +102,41 @@
     margin-top: 5px;
 }
 
+/* Estilo para el icono de marcador lila */
+.custom-lila-icon .lila-circle {
+    width: 30px; /* Ajusta el tamaño del círculo */
+    height: 30px;
+    background-color: #D8A7D3; /* Lila claro, puedes cambiar el código de color si prefieres otro tono */
+    border-radius: 50%; /* Para hacer el círculo */
+    border: 2px solid #fff; /* Borde blanco alrededor del círculo */
+    display: block; /* Muestra el círculo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar efecto de profundidad */
+}
+
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff; /* Texto blanco para resaltar sobre el fondo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Sombra para mejorar visibilidad */
+    margin-bottom: 30px; /* Espaciado abajo */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.2); /* Texto blanco para resaltar sobre el fondo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Sombra para mejorar visibilidad */
+    margin-bottom: 30px; /* Espaciado abajo */
+    padding: 10px;
+}
+
+
 @media (max-width: 1024px) {
     #map {
         width: 90%; /* Se ajusta a pantallas medianas */
@@ -111,6 +146,14 @@
 
 /* RESPONSIVE: EN PANTALLAS PEQUEÑAS LA IMAGEN VA ARRIBA */
 @media (max-width: 768px) {
+
+    h2 {
+        font-size: 2rem; /* Reduce el tamaño en móviles */
+    }
+    h2 {
+        font-size: 1rem; /* Reduce el tamaño en móviles */
+    }
+
     .lugar-card {
         flex-direction: column;
         align-items: center;
