@@ -9,6 +9,7 @@
     width: 100%; /* Imagen ocupa todo el ancho disponible */
     max-height: 500px; /* Limita la altura máxima */
     object-fit: cover; /* Recorta para evitar distorsión */
+    border-radius: 40px !important;
 }
 
 .gallery-section {
@@ -22,11 +23,11 @@
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas ajustables */
-    gap: 20px; /* Espaciado entre tarjetas */
-    width: 100%;
+    gap: 20px; /* Espaciado entre las imágenes */
+    justify-items: center; /* Centra las imágenes */
     max-width: 1200px;
-    justify-content: center;
     margin: auto;
+    padding: 10px;
 }
 
 .gallery-item {
@@ -69,7 +70,7 @@
 }
 
 .gallery-back {
-    background: #1e1e1e;
+    background: rgba(140, 72, 218, 0.3);
     color: #fff;
     transform: rotateY(180deg);
     padding: 15px;
@@ -93,6 +94,8 @@
 
     .gallery-inner {
         height: 250px; /* Altura fija para las tarjetas en móviles */
+        justify-items: center;
+        align-items: center;
     }
 
     .gallery-back {
@@ -100,3 +103,29 @@
         padding: 10px;
     }
 }
+
+.text-muted{
+    color: white !important;
+    font: bold;
+}
+
+h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff; /* Texto blanco para resaltar sobre el fondo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Sombra para mejorar visibilidad */
+    margin-bottom: 30px; /* Espaciado abajo */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    padding: 10px;
+}
+
+/* Responsividad para ajustar en dispositivos pequeños */
+@media (max-width: 768px) {
+    h3 {
+        font-size: 2rem; /* Reduce el tamaño en móviles */
+    }
+}
+
+
