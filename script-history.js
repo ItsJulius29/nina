@@ -60,8 +60,8 @@ pages[currentPage].classList.add('active');
 
 // Función de desplazamiento suave para móviles y PCs
 function scrollToPage(pageIndex) {
-    pages[pageIndex].scrollIntoView({ 
-        behavior: 'smooth', 
+    pages[pageIndex].scrollIntoView({
+        behavior: 'smooth',
         block: 'center' // Centra el elemento en la pantalla
     });
 }
@@ -89,13 +89,15 @@ prevBtn.addEventListener('click', () => {
 // Detectar si es móvil
 const isMobile = window.innerWidth <= 768;
 
-// Si es móvil, redirigir al centro del div activo al hacer clic en los botones
+// Asegurarse de que la funcionalidad de los botones funcione correctamente en dispositivos móviles
 if (isMobile) {
-    nextBtn.addEventListener('click', () => {
-        scrollToPage(currentPage);
+    nextBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevenir el comportamiento predeterminado
+        scrollToPage(currentPage); // Hacer scroll al div activo
     });
 
-    prevBtn.addEventListener('click', () => {
-        scrollToPage(currentPage);
+    prevBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevenir el comportamiento predeterminado
+        scrollToPage(currentPage); // Hacer scroll al div activo
     });
 }
