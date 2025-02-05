@@ -12,6 +12,10 @@
     margin: 0 auto; /* Centra el texto */
 }
 
+html,body{
+    overflow-x: hidden;  /* Esto está bien si no afecta el desplazamiento */
+    overflow-y: auto;    /* Asegúrate de permitir el scroll en el eje Y */
+}
 .container h4{
     color: #afa0a0;
 }
@@ -104,7 +108,7 @@ button:hover {
 #prev-button, #next-button {
     position: fixed;
     bottom: 20px; /* Distancia desde la parte inferior de la página */
-    z-index: 50; /* Asegura que los botones estén por encima de otros elementos */
+    z-index: 1000; /* Asegura que los botones estén por encima de otros elementos */
     font-size: 1.2rem; /* Tamaño de fuente */
     padding: 10px 20px; /* Espaciado dentro de los botones */
     border-radius: 5px; /* Bordes redondeados */

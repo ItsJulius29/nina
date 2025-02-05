@@ -61,7 +61,7 @@ function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
     window.requestAnimationFrame(() => {
         page.scrollIntoView({
-            behavior: 'smooth',
+            behavior: 'auto',
             block: 'center' // Aseguramos que el div esté centrado
         });
     });
