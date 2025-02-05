@@ -35,6 +35,7 @@ function openModal(item) {
     const modalVideo = document.getElementById("modal-video");
     const modalDesc = document.getElementById("modal-text");
     const modalLikes = document.getElementById("modal-likes");
+    const modalTiempo = document.getElementById("modal-tiempo");
     const modalComments = document.getElementById("modal-comments");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
@@ -42,13 +43,15 @@ function openModal(item) {
     modal.classList.remove("hidden"); // Mostrar el modal
     modalDesc.textContent = item.dataset.desc; // Descripción de la imagen
 
-    // Obtener likes y comentarios
+    // Obtener likes,tiempo y comentarios
     const likes = item.dataset.likes || 0;
+    const tiempo = item.dataset.tiempo || 0;
     const comments = item.dataset.comments || 0;
 
     // Mostrar los likes y comentarios en el modal
     modalLikes.textContent = `${likes} likes`;
-    modalComments.textContent = `Hace 5 minutos | ${comments} comentarios`;
+    modalTiempo.textContent = `Hace ${tiempo}`;
+    modalComments.textContent = `${comments} comentarios`;
 
     // Si es una imagen
     if (item.dataset.type === "image") {
