@@ -50,18 +50,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let currentPage = 0;
 const pages = document.querySelectorAll('.history-page');
+const nextBtn = document.getElementById('next-button');
+const prevBtn = document.getElementById('prev-button');
 
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función para hacer scroll con `scrollIntoView`
+// Función para hacer scroll
 function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
-    page.scrollIntoView({
-        behavior: 'smooth', // Desplazamiento suave
-        block: 'center' // Centrar el div
+    window.requestAnimationFrame(() => {
+        page.scrollIntoView({
+            behavior: 'auto',
+            block: 'center' // Aseguramos que el div esté centrado
+        });
     });
 }
+
+// Cambiar a la siguiente página
+nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentPage < pages.length - 1) {
+        pages[currentPage].classList.remove('active');
+        currentPage++;
+        pages[currentPage].classList.add('active');
+        setTimeout(() => {
+            scrollToPage(currentPage); // Hacer scroll después de la animación
+        }, 100); // Retraso para asegurar que el cambio de clase sea ejecutado correctamente
+    }
+});
+
+// Cambiar a la página anterior
+prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentPage > 0) {
+        pages[currentPage].classList.remove('active');
+        currentPage--;
+        pages[currentPage].classList.add('active');
+        setTimeout(() => {
+            scrollToPage(currentPage); // Hacer scroll después de la animación
+        }, 100); // Retraso para asegurar que el cambio de clase sea ejecutado correctamente
+    }
+});
 
 // Agregar evento de clic a cada página
 pages.forEach((page, index) => {
