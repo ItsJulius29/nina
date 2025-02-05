@@ -6,14 +6,12 @@ const auth = getAuth();
 // Verificar si el usuario está autenticado
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // Si el usuario está autenticado, actualizar el navbar con su nombre
         const navbarUsername = document.getElementById("navbar-username");
         if (navbarUsername) {
             navbarUsername.textContent = user.email.split("@")[0]; // Mostrar el nombre antes del @
         }
         localStorage.setItem("username", user.email.split("@")[0]); // Guardar en localStorage
     } else {
-        // Si NO hay usuario autenticado, redirigir al login
         window.location.replace("login.html");
     }
 });
@@ -58,13 +56,12 @@ const prevBtn = document.getElementById('prev-button');
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función para hacer scroll usando window.scrollTo
+// Función para hacer scroll usando scrollIntoView
 function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
-    const rect = page.getBoundingClientRect();
-    window.scrollTo({
-        top: rect.top + window.pageYOffset - (window.innerHeight / 2) + (rect.height / 2), // Ajusta la posición para centrar
-        behavior: 'smooth'
+    page.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'  // Centra el div en la vista
     });
 }
 
