@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
 // Mostrar el tiempo que llevan juntos
 document.addEventListener("DOMContentLoaded", () => {
     const startDate = new Date("2023-10-20");
@@ -61,13 +62,13 @@ function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
     window.requestAnimationFrame(() => {
         page.scrollIntoView({
-            behavior: 'auto',
+            behavior: 'smooth',
             block: 'center' // Aseguramos que el div esté centrado
         });
     });
 }
 
-// Cambiar a la siguiente página
+// Cambiar a la siguiente página (botón)
 nextBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if (currentPage < pages.length - 1) {
@@ -80,7 +81,7 @@ nextBtn.addEventListener('click', (e) => {
     }
 });
 
-// Cambiar a la página anterior
+// Cambiar a la página anterior (botón)
 prevBtn.addEventListener('click', (e) => {
     e.preventDefault();
     if (currentPage > 0) {
@@ -93,7 +94,7 @@ prevBtn.addEventListener('click', (e) => {
     }
 });
 
-// Agregar evento de clic a cada página
+// Agregar evento de clic a cada página (para móvil)
 pages.forEach((page, index) => {
     page.addEventListener('click', () => {
         if (currentPage !== index) {
