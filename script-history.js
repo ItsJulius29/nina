@@ -10,7 +10,7 @@ onAuthStateChanged(auth, (user) => {
         if (navbarUsername) {
             navbarUsername.textContent = user.email.split("@")[0]; // Mostrar el nombre antes del @
         }
-        localStorage.setItem("username", user.email.split("@")[0]); 
+        localStorage.setItem("username", user.email.split("@")[0]); // Guardar en localStorage
     } else {
         window.location.replace("login.html");
     }
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Mostrar el tiempo que llevan juntos
 document.addEventListener("DOMContentLoaded", () => {
-    const startDate = new Date("2023-10-20");
+    const startDate = new Date("2023-10-20"); // Fecha personalizada
     const now = new Date();
     const diffTime = Math.abs(now - startDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -48,24 +48,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-let currentPage = 0;
-const pages = document.querySelectorAll('.history-page');
+let currentPage = 0; // Página inicial
+const pages = document.querySelectorAll('.history-page'); // Todas las páginas
 const nextBtn = document.getElementById('next-button');
 const prevBtn = document.getElementById('prev-button');
 
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función para hacer scroll con scrollIntoView
+// Función para hacer scroll con window.scrollTo
 function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
-    page.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center' // Aseguramos que el elemento se centre en la pantalla
+    const rect = page.getBoundingClientRect();
+
+    // Realizar scroll de manera manual al div
+    window.scrollTo({
+        top: rect.top + window.pageYOffset - (window.innerHeight / 2) + (rect.height / 2), // Ajustar para centrar
+        behavior: 'smooth' // Desplazamiento suave
     });
 }
 
-// Función para cambiar de página
+// Cambiar a la siguiente página
 nextBtn.addEventListener('click', () => {
     if (currentPage < pages.length - 1) {
         pages[currentPage].classList.remove('active');
@@ -75,6 +78,7 @@ nextBtn.addEventListener('click', () => {
     }
 });
 
+// Cambiar a la página anterior
 prevBtn.addEventListener('click', () => {
     if (currentPage > 0) {
         pages[currentPage].classList.remove('active');
