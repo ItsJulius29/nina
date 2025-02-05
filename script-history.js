@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const daysCounter = document.getElementById("days-counter");
     if (daysCounter) {
-        daysCounter.textContent = `❤️ Llevamos ${diffDays} días juntos ❤️`;
+        daysCounter.textContent = `❤️Llevamos ${diffDays} días juntos❤️`;
     }
 });
 

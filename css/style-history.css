@@ -19,7 +19,7 @@ html,body{
 }
 .container h4{
     color: #afa0a0;
-    margin-bottom: 20%;
+    margin: 10%;
 }
 
 body {
@@ -154,8 +154,9 @@ h3 {
         padding: 40px;
     }
     .stroke-text {
-        font-size: 2rem; /* Ajusta el tamaño para pantallas más pequeñas */
+        font-size: 3rem; /* Ajusta el tamaño para pantallas más pequeñas */
         -webkit-text-stroke: 0.8px #953de7cc; /* Reduce un poco el grosor */
+        white-space: initial;
     }
 
     .history-image img {

@@ -6,11 +6,12 @@
 /* Juego de corazones */
 #game-area {
     position: relative;
-    width: 90%; /* Ancho ajustado */
-    max-width: 400px; /* Máximo para pantallas grandes */
-    height: 300px; /* Altura reducida */
+    width: 100%; /* Ancho ajustado */
+    max-width: 800px; /* Máximo para pantallas grandes */
+    height: 500px; /* Altura reducida */
     margin: 50px auto; /* Centrado vertical */
-    background-color: rgba(255, 255, 255, 0.8);
+    background-position: center;
+    background-size: cover;
     border: 2px solid #c3b1e1;
     border-radius: 15px;
     overflow: hidden;
@@ -103,10 +104,16 @@
     height: auto;
 }
 
+#music {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+}
+
 /* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
     #game-area {
         height: 250px; /* Altura más pequeña */
+        width: 80%;
         margin-top: 20px; /* Centrado */
     }
 

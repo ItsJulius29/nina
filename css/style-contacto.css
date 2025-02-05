@@ -149,8 +149,10 @@ h3 {
 
     h2 {
         font-size: 2rem; /* Reduce el tamaño en móviles */
+        margin-top: 10% !important;
+        margin-bottom: 20%;
     }
-    h2 {
+    h3 {
         font-size: 1rem; /* Reduce el tamaño en móviles */
     }
 

@@ -134,16 +134,7 @@ a {
 
 
 
-#music {
-    width: 50%;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    text-align: center;
-    justify-content: center;
-    border-radius: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 .text-left {
     text-align: left;
