@@ -56,15 +56,12 @@ const prevBtn = document.getElementById('prev-button');
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función para hacer scroll con window.scrollTo
+// Función para hacer scroll al div actual
 function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
-    const rect = page.getBoundingClientRect();
-
-    // Realizar scroll de manera manual al div
-    window.scrollTo({
-        top: rect.top + window.pageYOffset - (window.innerHeight / 2) + (rect.height / 2), // Ajustar para centrar
-        behavior: 'smooth' // Desplazamiento suave
+    page.scrollIntoView({
+        behavior: 'smooth', // Desplazamiento suave
+        block: 'center'     // Centrar el elemento en la pantalla
     });
 }
 
