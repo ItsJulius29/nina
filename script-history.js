@@ -8,9 +8,9 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         const navbarUsername = document.getElementById("navbar-username");
         if (navbarUsername) {
-            navbarUsername.textContent = user.email.split("@")[0]; // Mostrar el nombre antes del @
+            navbarUsername.textContent = user.email.split("@")[0];
         }
-        localStorage.setItem("username", user.email.split("@")[0]); // Guardar en localStorage
+        localStorage.setItem("username", user.email.split("@")[0]); 
     } else {
         window.location.replace("login.html");
     }
@@ -27,7 +27,7 @@ function cerrarSesion() {
     });
 }
 
-// Asignar evento al botón de cerrar sesión en cualquier página
+// Asignar evento al botón de cerrar sesión
 document.addEventListener("DOMContentLoaded", () => {
     const logoutButton = document.getElementById("logout-button");
     if (logoutButton) {
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Mostrar el tiempo que llevan juntos
 document.addEventListener("DOMContentLoaded", () => {
-    const startDate = new Date("2023-10-20"); // Fecha personalizada
+    const startDate = new Date("2023-10-20");
     const now = new Date();
     const diffTime = Math.abs(now - startDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -48,55 +48,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-let currentPage = 0; // Página inicial
-const pages = document.querySelectorAll('.history-page'); // Todas las páginas
+let currentPage = 0;
+const pages = document.querySelectorAll('.history-page');
 const nextBtn = document.getElementById('next-button');
 const prevBtn = document.getElementById('prev-button');
 
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función para hacer scroll usando scrollIntoView
+// Función para hacer scroll con scrollIntoView
 function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
     page.scrollIntoView({
         behavior: 'smooth',
-        block: 'center'  // Centra el div en la vista
+        block: 'center'
     });
 }
 
-// Cambiar a la siguiente página
+// Funcionalidad de los botones en PC y móviles
 nextBtn.addEventListener('click', () => {
     if (currentPage < pages.length - 1) {
         pages[currentPage].classList.remove('active');
         currentPage++;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage); // Hacer scroll al div actual
+        scrollToPage(currentPage);
     }
 });
 
-// Cambiar a la página anterior
 prevBtn.addEventListener('click', () => {
     if (currentPage > 0) {
         pages[currentPage].classList.remove('active');
         currentPage--;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage); // Hacer scroll al div actual
+        scrollToPage(currentPage);
     }
 });
-
-// Detectar si es móvil
-const isMobile = window.innerWidth <= 768;
-
-// Asegurarse de que la funcionalidad de los botones funcione correctamente en dispositivos móviles
-if (isMobile) {
-    nextBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevenir el comportamiento predeterminado
-        scrollToPage(currentPage); // Hacer scroll al div activo
-    });
-
-    prevBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevenir el comportamiento predeterminado
-        scrollToPage(currentPage); // Hacer scroll al div activo
-    });
-}
