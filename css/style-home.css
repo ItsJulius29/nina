@@ -63,8 +63,8 @@ a {
 
 /* Estilo para la imagen del usuario */
 .user-image {
-    width: 40px;
-    height: 40px;
+    width: 70px !important;
+    height: 70px !important;
     border-radius: 50%;
     /* Hacer la imagen circular */
     object-fit: cover;
@@ -80,6 +80,8 @@ a {
 .navbar .btn {
     margin-left: auto;
     /* Empujar el botón a la derecha */
+    width: 200px;
+    height: 50px;
 }
 
 .nav-link {
@@ -165,4 +167,31 @@ a {
 
 .actions-h3{
     padding-top: 10%;
+}
+
+.navbar-brand p{
+    font-size: 20px !important;
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+    .navbar-brand{
+        display: none;
+    }
+
+    .perfil{
+        display: block !important;
+    }
+
+    .navbar .btn {
+        margin-left: auto;
+        /* Empujar el botón a la derecha */
+        width: 130px;
+        height: 40px;
+    }
+}
+
+.perfil{
+    display: none;
 }
