@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 // Mostrar el tiempo que llevan juntos
 document.addEventListener("DOMContentLoaded", () => {
     const startDate = new Date("2023-10-20");
@@ -49,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// Variables
 let currentPage = 0;
 const pages = document.querySelectorAll('.history-page');
 const nextBtn = document.getElementById('next-button');
@@ -57,46 +57,40 @@ const prevBtn = document.getElementById('prev-button');
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función para hacer scroll
+// Función para hacer scroll al div actual con `scrollIntoView`
 function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
-    window.requestAnimationFrame(() => {
-        page.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center' // Aseguramos que el div esté centrado
-        });
+    page.scrollIntoView({
+        behavior: 'smooth', // Desplazamiento suave
+        block: 'center'     // Centra el div en la pantalla
     });
 }
 
-// Cambiar a la siguiente página (botón)
+// Cambiar a la siguiente página
 nextBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevenir el comportamiento por defecto del botón
     if (currentPage < pages.length - 1) {
         pages[currentPage].classList.remove('active');
         currentPage++;
         pages[currentPage].classList.add('active');
-        setTimeout(() => {
-            scrollToPage(currentPage); // Hacer scroll después de la animación
-        }, 100); // Retraso para asegurar que el cambio de clase sea ejecutado correctamente
+        scrollToPage(currentPage); // Hacer scroll al div actual
     }
 });
 
-// Cambiar a la página anterior (botón)
+// Cambiar a la página anterior
 prevBtn.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevenir el comportamiento por defecto del botón
     if (currentPage > 0) {
         pages[currentPage].classList.remove('active');
         currentPage--;
         pages[currentPage].classList.add('active');
-        setTimeout(() => {
-            scrollToPage(currentPage); // Hacer scroll después de la animación
-        }, 100); // Retraso para asegurar que el cambio de clase sea ejecutado correctamente
+        scrollToPage(currentPage); // Hacer scroll al div actual
     }
 });
 
-// Agregar evento de clic a cada página (para móvil)
+// Agregar evento de clic a cada página (para móvil y PC)
 pages.forEach((page, index) => {
-    page.addEventListener('click', () => {
+    page.addEventListener('touchstart', () => {
         if (currentPage !== index) {
             pages[currentPage].classList.remove('active');
             currentPage = index;
