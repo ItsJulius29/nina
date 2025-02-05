@@ -29,17 +29,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Función para abrir el modal
 function openModal(item) {
     const modal = document.getElementById("image-modal");
     const modalImage = document.getElementById("modal-image");
     const modalVideo = document.getElementById("modal-video");
     const modalDesc = document.getElementById("modal-text");
+    const modalLikes = document.getElementById("modal-likes");
+    const modalComments = document.getElementById("modal-comments");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
 
     modal.classList.remove("hidden"); // Mostrar el modal
     modalDesc.textContent = item.dataset.desc; // Descripción de la imagen
+
+    // Obtener likes y comentarios
+    const likes = item.dataset.likes || 0;
+    const comments = item.dataset.comments || 0;
+
+    // Mostrar los likes y comentarios en el modal
+    modalLikes.textContent = `${likes} likes`;
+    modalComments.textContent = `Hace 5 minutos | ${comments} comentarios`;
 
     // Si es una imagen
     if (item.dataset.type === "image") {
