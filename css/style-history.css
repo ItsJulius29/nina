@@ -182,9 +182,7 @@ h3 {
     }
 
     #prev-button, #next-button {
-        font-size: 1rem; /* Reducir el tamaño del botón en móviles */
-        padding: 8px 16px; /* Reducir el tamaño de los botones */
-        width: 100px; /* Ajustar el tamaño del botón */
+        display: none;
     }
 
     #prev-button{
