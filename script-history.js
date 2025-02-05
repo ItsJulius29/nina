@@ -56,36 +56,40 @@ const prevBtn = document.getElementById('prev-button');
 // Mostrar la primera página
 pages[currentPage].classList.add('active');
 
-// Función para hacer scroll con `requestAnimationFrame`
+// Función para hacer scroll
 function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
-
-    // Usar requestAnimationFrame para una animación más suave
     window.requestAnimationFrame(() => {
         page.scrollIntoView({
-            behavior: 'smooth', // Desplazamiento suave
-            block: 'center' // Centrar el div en la pantalla
+            behavior: 'smooth',
+            block: 'center' // Aseguramos que el div esté centrado
         });
     });
 }
 
-
-// Función para cambiar de página
-nextBtn.addEventListener('click', () => {
+// Cambiar a la siguiente página
+nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (currentPage < pages.length - 1) {
         pages[currentPage].classList.remove('active');
         currentPage++;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage); // Hacer scroll al div actual
+        setTimeout(() => {
+            scrollToPage(currentPage); // Hacer scroll después de la animación
+        }, 100); // Retraso para asegurar que el cambio de clase sea ejecutado correctamente
     }
 });
 
-prevBtn.addEventListener('click', () => {
+// Cambiar a la página anterior
+prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (currentPage > 0) {
         pages[currentPage].classList.remove('active');
         currentPage--;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage); // Hacer scroll al div actual
+        setTimeout(() => {
+            scrollToPage(currentPage); // Hacer scroll después de la animación
+        }, 100); // Retraso para asegurar que el cambio de clase sea ejecutado correctamente
     }
 });
 
@@ -96,7 +100,9 @@ nextBtn.addEventListener('touchstart', (e) => {
         pages[currentPage].classList.remove('active');
         currentPage++;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage);
+        setTimeout(() => {
+            scrollToPage(currentPage);
+        }, 100); // Retraso para asegurar el scroll
     }
 });
 
@@ -106,7 +112,8 @@ prevBtn.addEventListener('touchstart', (e) => {
         pages[currentPage].classList.remove('active');
         currentPage--;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage);
+        setTimeout(() => {
+            scrollToPage(currentPage);
+        }, 100); // Retraso para asegurar el scroll
     }
 });
-

@@ -34,7 +34,6 @@ body {
 .history-page {
     opacity: 25%; /* Comienza invisible */
     transition: opacity 1s ease, transform 1s ease;
-    transform: translateY(30px); /* Desplazamiento hacia abajo */
     width: 100%;
     display: flex; /* Activar Flexbox */
     justify-content: center; /* Centrar contenido horizontalmente */
@@ -105,10 +104,11 @@ button:hover {
 #prev-button, #next-button {
     position: fixed;
     bottom: 20px; /* Distancia desde la parte inferior de la página */
-    z-index: 10; /* Asegura que los botones estén por encima de otros elementos */
+    z-index: 50; /* Asegura que los botones estén por encima de otros elementos */
     font-size: 1.2rem; /* Tamaño de fuente */
     padding: 10px 20px; /* Espaciado dentro de los botones */
     border-radius: 5px; /* Bordes redondeados */
+    
 }
 
 /* Botón "Anterior" a la izquierda */
