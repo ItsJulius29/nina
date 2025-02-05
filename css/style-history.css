@@ -141,7 +141,8 @@ h3 {
 @media (max-width: 768px) {
 
     .container{
-        max-width: 400px;
+        padding: 40px;
+        max-width: 100%;
         padding: 40px;
     }
     .stroke-text {

@@ -8,7 +8,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         const navbarUsername = document.getElementById("navbar-username");
         if (navbarUsername) {
-            navbarUsername.textContent = user.email.split("@")[0];
+            navbarUsername.textContent = user.email.split("@")[0]; // Mostrar el nombre antes del @
         }
         localStorage.setItem("username", user.email.split("@")[0]); 
     } else {
@@ -61,17 +61,17 @@ function scrollToPage(pageIndex) {
     const page = pages[pageIndex];
     page.scrollIntoView({
         behavior: 'smooth',
-        block: 'center'
+        block: 'center' // Aseguramos que el elemento se centre en la pantalla
     });
 }
 
-// Funcionalidad de los botones en PC y móviles
+// Función para cambiar de página
 nextBtn.addEventListener('click', () => {
     if (currentPage < pages.length - 1) {
         pages[currentPage].classList.remove('active');
         currentPage++;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage);
+        scrollToPage(currentPage); // Hacer scroll al div actual
     }
 });
 
@@ -80,6 +80,6 @@ prevBtn.addEventListener('click', () => {
         pages[currentPage].classList.remove('active');
         currentPage--;
         pages[currentPage].classList.add('active');
-        scrollToPage(currentPage);
+        scrollToPage(currentPage); // Hacer scroll al div actual
     }
 });
