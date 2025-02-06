@@ -18,8 +18,8 @@ html,body{
     overflow-y: auto;    /* Asegúrate de permitir el scroll en el eje Y */
 }
 .container h4{
-    color: #afa0a0;
-    margin: 10%;
+    color: #6a5f6e;
+    margin: 15%;
 }
 
 body {
@@ -83,14 +83,15 @@ body {
 
 .history-text h4 {
     font-size: 2rem;
-    color: #953de7;
+    color: #ffffff9f;
     margin: 10px;
     font-family: Arial, sans-serif;
+    font: bold !important;
 }
 
 .history-text p {
     font-size: 1rem;
-    color: #666;
+    color: #aa34d4;
     margin: 10px;
     font-family: Arial, sans-serif;
 }
@@ -115,7 +116,7 @@ button {
     font-size: 1.2rem; /* Tamaño de fuente */
     padding: 10px 20px; /* Espaciado dentro de los botones */
     border-radius: 5px; /* Bordes redondeados */
-    
+    background-color: #947cb8 ;
 }
 
 /* Botón "Anterior" a la izquierda */
@@ -153,6 +154,11 @@ h3 {
         max-width: 100%;
         padding: 40px;
     }
+
+    .container h4{
+        margin: 5%;
+    }
+
     .stroke-text {
         font-size: 3rem; /* Ajusta el tamaño para pantallas más pequeñas */
         -webkit-text-stroke: 0.8px #953de7cc; /* Reduce un poco el grosor */

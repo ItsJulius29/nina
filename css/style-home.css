@@ -133,8 +133,13 @@ a {
 }
 
 
+.bienvenida{
+    color: rgba(255, 255, 255, 0.685);
+}
 
-
+#menesp{
+    color: rgba(255, 255, 255, 0.733);
+}
 
 .text-left {
     text-align: left;

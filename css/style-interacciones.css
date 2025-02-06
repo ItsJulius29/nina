@@ -1,4 +1,14 @@
 
+h3{
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 2.5rem;
+}
+
+.sorpresa{
+    color: #4c1d99;
+    font-size: 2rem !important;
+}
+
 #actions,#juegonino {
     width: 100%;
     margin: 0px 0px 0px 0px;
@@ -148,9 +158,25 @@
     .arrow {
         width: 30px; /* Tamaño ajustado */
     }
+
+    h3{
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 1.8rem;
+    }
+    
+    .sorpresa{
+        color: #4c1d99;
+        font-size: 1rem !important;
+    }
+
+    #qr-nina{
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
 }
 
 #qr-nina{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
 }
