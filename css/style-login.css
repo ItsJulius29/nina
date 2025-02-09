@@ -1,69 +1,86 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #8b8bd6;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+}
+
+.background-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/img/nina/365dias.jpg') no-repeat center center/cover; /* Usar una imagen o color de fondo */
+    z-index: -1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards; /* Transición suave al cargar */
+    color: transparent;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente si la imagen es oscura */
+    overflow: hidden;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.background-text p {
+    font-size: 7px;
+    line-height: 7px;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    background-image: url('/img/nina/365dias.jpg'); /* Imagen con letras que aparecen sobre fondo */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: justify;
 }
 
 .login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 90%; /* Cambiado para ser responsive */
-    max-width: 400px; /* Limita el ancho máximo */
+    background: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente */
+    width: 90%;
+    max-width: 400px;
+    color: rgba(240, 248, 255, 0.9);
     text-align: center;
-    color: rgba(240, 248, 255, 0.562);
-    background: rgba(0, 0, 0, 0.1); /* Fondo blanco */
 }
 
 .login-container img {
-    width: 200px; /* Ajusta el tamaño de la imagen */
-    height: 200px; /* Ajusta el tamaño de la imagen */
-    margin-bottom: 15px; /* Espaciado entre la imagen y el texto */
-    border-radius: 50%; /* Hace que sea redonda */
-    object-fit: cover; /* Recorta la imagen si es necesario */
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .login-container h1 {
-    font-size: 1.5rem; /* Tamaño responsivo */
-    color: #6b5b95; /* Color del texto */
-    margin-bottom: 10px; /* Espaciado inferior */
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
-#countdown {
-    font-size: 1rem; /* Ajusta el tamaño del texto */
-    color: #333; /* Color del texto */
-    margin-bottom: 20px;
-}
-
-form {
-    margin-top: 10px;
-}
-
-input {
+form input {
     display: block;
     width: 80%;
-    margin: 10px auto; /* Centra los inputs */
+    margin: 10px auto;
     padding: 10px;
     border: 1px solid rgba(224, 207, 207, 0.3);
     border-radius: 4px;
 }
 
-button {
+form button {
     background: #07bfc5b2;
     color: white;
     border: none;
@@ -74,7 +91,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+form button:hover {
     background: rgba(4, 158, 138, 0.8);
 }
 
@@ -91,4 +108,32 @@ button:hover {
 
 #message.error {
     color: red;
+}
+
+
+/* Responsiveness en pantallas pequeñas */
+@media (max-width: 768px) {
+
+    .background-text p {
+        font-size: 3px; /* Ajusta el tamaño del texto de fondo de acuerdo con el ancho de la ventana */
+        line-height: 4px;
+    }
+
+    .login-container {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .login-container img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .login-container h1 {
+        font-size: 1.2rem;
+    }
+
+    form input, form button {
+        width: 100%;
+    }
 }
