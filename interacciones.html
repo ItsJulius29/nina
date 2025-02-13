@@ -27,7 +27,8 @@
 
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0, 0, 0, 0);">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                style="border-color: rgba(0, 0, 0, 0);">
                 <div class="d-flex align-items-center">
                     <img src="img/user.jpg" alt="User" class="user-image me-2">
                 </div>
@@ -62,14 +63,19 @@
     </nav>
 
     <section id="actions" class="row text-center bg-light pt-5">
-        
+
         <div class="container col-md-6 sopresa-div">
             <section id="secret-messages" class="text-center py-5 bg-light ">
                 <div class="container ">
                     <h3>Descubre algo especial</h3>
                     <p id="hidden-message" class="d-none mt-3 sorpresa">
                         <br><b>¡SORPRESA!</b><br>
-                        <br><img id="qr-nina" src="img/qrnina.png" ><br>
+                        <br>
+                        <a href="https://youtube.com/playlist?list=PLB43PaGAs7iWzrtFPKyqn3MbFRCaPcFS2&si=Z3PnO6ol-KSRv1o7"
+                            target="_blank">
+                            <img id="qr-nina" src="img/qrnina.png" hr>
+                        </a>
+                        <br>
                         <br>Gracias por ser parte de mi vida.<br>
                         Te amo más de lo que las palabras pueden expresar. 💖
                     </p>
@@ -82,7 +88,7 @@
 
         <div class="container col-md-6 sorpresa-div">
             <section class="text-center justify-content-center py-5 bg-light">
-                <div  id="music">
+                <div id="music">
                     <br>
                     <h3>Envuelvete en un recuerdo mágico</h3>
                     <button class="btn btn-success btn-lg m-3 ms-2" onclick="controlMusic('play')">Escuchar nuestra
@@ -92,7 +98,7 @@
                         <button class="btn btn-danger btn-lg mt-3" onclick="controlMusic('stop')">Detener</button>
                     </div>
                     <div class="div">
-                        <p class="text-white mt-3" >Controla el nivel de la canción de monitos ninosh</p>
+                        <p class="text-white mt-3">Controla el nivel de la canción de monitos ninosh</p>
                         <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
                     </div>
                 </div>
@@ -110,16 +116,16 @@
 
     <section id="puzzle-section" class="text-center bg-light py-5">
         <h3 class="text-center">Arma el puzzle de nuestra foto 💖</h3>
-        <div class="mt-5"  id="game-area-puzzle" style="display: flex; justify-content: center; gap: 20px;">
+        <div class="mt-5" id="game-area-puzzle" style="display: flex; justify-content: center; gap: 20px;">
             <div id="puzzle-container"><!-- Las piezas del puzzle se generarán dinámicamente con JavaScript --></div>
             <div class="arrow-container">
                 <img src="img/flecha.png" alt="Flecha" class="arrow">
             </div>
             <div id="drop-zone"><!-- Zona donde se colocarán las piezas --></div>
-        </div>  
+        </div>
     </section>
 
-    
+
 </body>
 
 <script type="module" src="script.js"></script>
