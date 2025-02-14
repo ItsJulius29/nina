@@ -38,6 +38,6 @@ function launchConfetti() {
 document.addEventListener("DOMContentLoaded", () => {
     const titleElement = document.getElementById("animated-title");
     if (titleElement) {
-        titleElement.innerHTML = "Feliz día de San Valentín 💖";
+        titleElement.innerHTML = "Feliz día de San Valentín mi monita💖";
     }
 });

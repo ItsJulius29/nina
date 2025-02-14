@@ -70,29 +70,31 @@ if (logoutButton) {
     });
 }
 
-// **🔹 CONTADOR HASTA 14 DE FEBRERO**
+// ** CONTADOR HASTA 14 DE FEBRERO**
 const countdownElement = document.getElementById("countdown");
 if (countdownElement) {
-    const targetDate = new Date("2025-02-14T00:00:00").getTime();
+    const targetDate = new Date("2025-02-14T00:00:00").getTime();  // Fecha objetivo 14 de febrero
 
+    // Se habilitan los campos desde el inicio
+    document.getElementById("username").disabled = false;
+    document.getElementById("password").disabled = false;
+    document.querySelector('button[type="submit"]').disabled = false;
+
+    // El contador que se ejecutará cada segundo
     const countdown = setInterval(() => {
         const now = new Date().getTime();
         const distance = targetDate - now;
 
-        if (distance < 0) {
+        if (distance < 0) {  // Si ya pasó el 14 de febrero
             clearInterval(countdown);
-            countdownElement.innerHTML = "¡Es 14 de Febrero! Puedes iniciar sesión.";
-            document.getElementById("username").disabled = false;
-            document.getElementById("password").disabled = false;
-            document.querySelector("button[type='submit']").disabled = false;
-            return;
+            countdownElement.innerHTML = "¡Es 14 de Febrero! Ya Puedes iniciar sesión nina.";
+        } else {
+            // Se sigue mostrando el contador de tiempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownElement.innerHTML = `${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos.`;
         }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownElement.innerHTML = `${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos.`;
     }, 1000);
 }
