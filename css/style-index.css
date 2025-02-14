@@ -6,7 +6,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -31,6 +30,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 5%;
 }
 
 /* ✅ Título RESPONSIVE */
@@ -38,7 +38,6 @@ h1 {
     font-size: 5rem;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
     animation: pulse 1.5s infinite;
     translate: no;
     word-wrap: break-word;
@@ -51,138 +50,39 @@ h1 {
     50% { transform: scale(1.1); }
 }
 
+
 /* ✅ RESPONSIVE: Tamaño dinámico del título */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem; /* Se reduce en pantallas pequeñas */
+        margin-top: 10%;
+        font-size: 3rem; /* Se reduce en pantallas pequeñas */
+    }
+    #flower {
+        width: 400px !important ;
+        height: 450px !important;
     }
 }
 
-@media (max-width: 600px) {
-    #no-button {
-        font-size: 1.5rem; /* Reduce el tamaño en pantallas pequeñas */
-        padding: 8px 15px;
-    }
-}
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 2rem;
+        margin-top: 20%;
+        font-size: 2.5rem;
+    }
+    #flower {
+        width: 250px !important ;
+        height: 350px !important;
     }
 }
 
-/* ✅ Botones centrados y responsive */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
-}
-
-/* Botón "Sí" */
-#yes-button {
-    background-color: #ff6f61;
-    color: #fff;
-}
-
-#yes-button:hover {
-    background-color: #ff4a4a;
-    transform: scale(1.1);
-}
-
-/* Botón "No" (que se mueve) */
-#no-button {
-    background-color: #6c757d;
-    color: #fff;
-    position: relative;
-    transition: transform 0.2s ease, left 0.3s ease, top 0.3s ease; 
-    max-width: 100px; /* Evita que el botón se agrande demasiado en pantallas grandes */
-    white-space: nowrap; /* Evita que el texto se corte */
-    overflow: hidden;
-}
 
 /* ✅ Sapo responsivo y bien posicionado */
-#sapo {
-    position: absolute;
-    bottom: 10px;
+#flower {
+    position:absolute;
+    top: 70%;
     left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
-    width: 120px;
+    transform: translate(-50%, -50%);
+    width: 600px; /* Tamaño grande de la flor */
+    height: 700px;
     transition: transform 0.3s ease-in-out;
-}
-
-#sapo:hover {
-    animation: jump 0.6s ease-in-out;
-    transform: scale(1.2);
-    filter: brightness(1.3);
-    transition: transform 0.3s, filter 0.3s;
-}
-
-@keyframes jump {
-    0% { transform: translate(-50%, 0) scale(1); }
-    30% { transform: translate(-50%, -20px) scale(1.1); }
-    50% { transform: translate(-50%, 0) scale(1); }
-    70% { transform: translate(-50%, -10px) scale(1.05); }
-    100% { transform: translate(-50%, 0) scale(1); }
-}
-
-/* ✅ Evitar que el sapo se salga en móviles */
-@media (max-width: 480px) {
-    #sapo {
-        width: 90px;
-    }
-}
-
-.custom-alert {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.custom-alert.hidden {
-    display: none;
-}
-
-.custom-alert-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.custom-alert-content p {
-    font-size: 20px;
-    color: #ff4d67;
-}
-
-#close-alert {
-    margin-top: 10px;
-    background-color: #ff4d67;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#close-alert:hover {
-    background-color: #ff6f80;
 }
