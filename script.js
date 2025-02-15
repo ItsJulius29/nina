@@ -87,7 +87,7 @@ if (countdownElement) {
 
         if (distance < 0) {  // Si ya pasó el 14 de febrero
             clearInterval(countdown);
-            countdownElement.innerHTML = "¡Es 14 de Febrero! Ya Puedes iniciar sesión nina.";
+            countdownElement.innerHTML = "¡Ya pasó el 14 de Febrero! Ya Puedes iniciar sesión nina. Disfruta tu regalo ❤️";
         } else {
             // Se sigue mostrando el contador de tiempo
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
